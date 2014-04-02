@@ -1,0 +1,17 @@
+@import "_breakpoint";
+
+.thing {
+    width: 100%;
+}
+
+@media (min-width: 10em) {
+    .thing {
+        width: 50%;
+    }
+}
+
+@media (max-width: 5em) {
+    .thing {
+        float: left;
+    }
+}
