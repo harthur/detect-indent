@@ -4,24 +4,29 @@ var https = require("https"),
 
 var dir = "files";
 var langs = ['JavaScript', 'CSS', 'HTML'];
+var interval = 1000 * 60 * 15; // 15 minutes
 
+setInterval(function() {
+  console.log("fetching recent gists");
 
-getRecentGists(function(gists) {
-  for (var i in gists) {
-    var gist = gists[i];
-    var hasLang = false;
-    for (var name in gist.files) {
-      var lang = gist.files[name].language;
-      if (langs.indexOf(lang) == -1) {
-        hasLang = true;
-        break;
+  getRecentGists(function(gists) {
+    console.log("fetched", gists.length, "gists");
+    for (var i in gists) {
+      var gist = gists[i];
+      var hasLang = false;
+      for (var name in gist.files) {
+        var lang = gist.files[name].language;
+        if (langs.indexOf(lang) >= 0) {
+          hasLang = true;
+          break;
+        }
+      }
+      if (hasLang) {
+        getGist(gist.id, saveGistFiles);
       }
     }
-    if (hasLang) {
-      getGist(gist.id, saveGistFiles);
-    }
-  }
-});
+  });
+}, interval);
 
 function saveGistFiles(gist) {
   for (var name in gist.files) {
@@ -30,7 +35,7 @@ function saveGistFiles(gist) {
       continue;
     }
     var filename = path.join(dir, file.language, gist.id + "-" + file.filename);
-    console.log("saving ", filename);
+    console.log(">saving ", filename);
     saveFile(filename, file.content);
   }
 }
@@ -44,7 +49,7 @@ function saveFile(file, content) {
 function getRecentGists(callback) {
   var options = {
     host: 'api.github.com',
-    path: '/gists/public',
+    path: '/gists/public?per_page=100',
     headers: {
       'User-Agent': 'harthur'
     }
