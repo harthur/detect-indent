@@ -70,7 +70,7 @@ function getJSON(options, callback) {
   https.get(options, function(res) {
     res.setEncoding('utf8');
 
-    data = "";
+    var data = "";
     res.on('data', function(chunk) {
       data += chunk;
     })
