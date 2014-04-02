@@ -5,33 +5,34 @@ var https = require("https"),
 var dir = "files";
 var langs = ['JavaScript', 'CSS', 'HTML'];
 
-getPublic(function(gists) {
+
+getRecentGists(function(gists) {
   for (var i in gists) {
     var gist = gists[i];
+    var hasLang = false;
     for (var name in gist.files) {
       var lang = gist.files[name].language;
       if (langs.indexOf(lang) == -1) {
-        continue;
+        hasLang = true;
+        break;
       }
-      (function(name) { // omg
-        getGist(gist.id, function(details) {
-          saveGist(details, name)
-        });
-      })(name);
+    }
+    if (hasLang) {
+      getGist(gist.id, saveGistFiles);
     }
   }
 });
 
-function saveGist(gist, file) {
-  var file = gist.files[file];
-  if (!file) {
-    console.error("couldn't find", file);
-    return;
+function saveGistFiles(gist) {
+  for (var name in gist.files) {
+    var file = gist.files[name];
+    if (langs.indexOf(file.language) == -1 || name == "0_reuse_code.js") {
+      continue;
+    }
+    var filename = path.join(dir, file.language, gist.id + "-" + file.filename);
+    console.log("saving ", filename);
+    saveFile(filename, file.content);
   }
-  var filename = path.join(dir, file.language, gist.id + "-" + file.filename);
-
-  console.log("saving ", filename);
-  saveFile(filename, file.content);
 }
 
 /* Helpers */
@@ -40,9 +41,7 @@ function saveFile(file, content) {
   fs.writeFileSync(file, content);
 }
 
-// per_page=100
-
-function getPublic(callback) {
+function getRecentGists(callback) {
   var options = {
     host: 'api.github.com',
     path: '/gists/public',
