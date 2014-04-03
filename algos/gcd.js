@@ -8,7 +8,7 @@ module.exports = function(lines) {
 
   // count up number of lines using each type of indentation
   lines.forEach(function (text) {
-    if (text.startsWith("\t")) {
+    if (text[0] === ("\t")) {
       tabs++;
       total++;
     }
@@ -35,7 +35,7 @@ module.exports = function(lines) {
 
   // mark as tabs if they start more than half the lines
   if (tabs >= total / 2) {
-    return { tabs: true };
+    return "tabs";
   }
 
   // get the most common widths to remove outliers
@@ -56,7 +56,7 @@ module.exports = function(lines) {
   // now get the largest width that divides all of them
   var indent = widths.reduce(gcd);
 
-  return { tabs: false, spaces: indent };
+  return indent;
 }
 
 /* Greatest common denominator of two numbers */
