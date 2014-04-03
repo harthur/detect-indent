@@ -1,0 +1,57 @@
+{% comment %}
+BookThatApp auto installed snippet. Changes made to this file will be lost if installed again.
+{% endcomment %}
+
+{% if product.metafields.bookthatapp.config %}
+{% unless bta_configured %}
+
+{% capture attribute %}booking-finish{% endcapture %}
+<input id="{{ attribute }}" type="hidden" name="properties[{{ attribute }}]" class="datepicker bta" />
+
+<div class="booking-form" style="margin-top:20px">
+  <div class="selector-wrapper" style="position:relative; width:100%">
+    <span id="return-date" style="position:absolute;left:160px"></span>
+    {% capture attribute %}booking-start{% endcapture %}
+    <label for="{{ attribute }}">Date</label>
+    <input id="{{ attribute }}" type="text" name="properties[{{ attribute }}]" size="12" class="datepicker bta required bta-load-enable" data-handle="{{ product.handle }}" data-variant="{{ product.variants.first.id}}" data-bta-product-config="{{ product.metafields.bookthatapp.config }}" data-bta-variant-config="{% for variant in product.variants %}{{ variant.id }}:{{ variant.metafields.bookthatapp.config }}{% unless forloop.last %},{% endunless %}{% endfor %}" disabled="disabled" />
+  </div>
+</div>
+
+<script>
+var bta = {
+    productId: {{ product.id }}
+}
+
+function updateReturnDate() {
+  var start = $('#booking-start').datepicker('getDate');
+  
+  $('#return-date').empty();
+  
+  if (start) {
+    var duration = $('#booking-start').attr('data-duration'),
+        finish = new Date(start.getTime()),
+        capacity = bta.availableCapacity($('#product-select option:selected').val(), start, finish);
+    
+    finish.setSeconds(finish.getSeconds() + (duration * 60))
+    $('#booking-finish').datepicker('setDate', finish);
+    
+    if (capacity > 0) {
+      $('#return-date').html("<strong>Return Date</strong><br/><span style='position:absolute;top:35px'>" + $.datepicker.formatDate('mm/dd/yy', finish) + "</span>");
+    }
+  }
+}
+  
+$('form[action="/cart/add"]').on('bta.datetimeChange', function(event, form) {
+  updateReturnDate();
+});
+  
+$('.single-option-selector').live('change', function() {
+  if ($('#booking-start').hasClass('bta-initialized')) {
+    updateReturnDate();
+  }
+});
+  
+</script>
+{% assign bta_configured = true %}
+{% endunless %}
+{% endif %}

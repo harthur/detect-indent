@@ -1,0 +1,108 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+
+@-moz-document domain("wikipedia.org") {
+
+    .mw-headline, .firstHeading, #mw-content-text p, #mw-content-text>ul>li {
+        font-family: Georgia, serif !important;
+    }
+    
+    .mw-headline {
+        font-size: 1.2em !important;
+    }
+    
+    .firstHeading {
+        font-size: 2em !important;
+        font-variant: small-caps;
+    }
+       
+    #mw-content-text p, #mw-content-text>ul>li {
+        font-size: 1.3em !important;
+        line-height: 1.5em !important;
+    }
+    
+    #mw-content-text>ul {
+        margin-bottom: 1.5em !important;
+    }
+     
+    #mw-content-text p {
+        text-align: justify !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .mw-editsection {
+        opacity: 0.2;
+        transition: opacity 0.25s ease-in-out;
+    }
+
+    .mw-editsection:hover {
+        opacity: 1;
+    }
+    
+    #bodyContent {
+       width: 100% !important;    
+    }
+    
+    #content {
+        max-width: 1100px !important;
+        border-width: 1px !important;
+        box-shadow: 5px 5px 7px #cdcdcd;
+    }
+    
+    #mw-head {
+        right: auto !important;
+        max-width: 1342px !important;
+    }
+    
+    #footer {
+        max-width: 1100px !important;
+    }
+    
+    .infobox {
+        margin: 2em 0 2em 2em !important;
+    }
+    
+    table.wikitable {
+        background-color: inherit !important;
+        border-width: 1px 0 0 0 !important;
+        border-color: #ccc !important;
+        border-style: solid !important;
+    }
+    
+    table.wikitable>*>tr>th, table.wikitable>*>tr>td {
+        padding: 6px !important;
+        border-width: 0 0 1px 0 !important;
+        border-color: #ccc !important;
+        border-style: solid !important;
+    }
+    
+    table.wikitable>*>tr>th, table.wikitable>*>tr>td:not([style]) {
+        background-color: #efefef !important;
+    }
+    
+    
+    table.wikitable>*>tr:nth-child(odd)>td:not([style]) {
+        background-color: #fff !important;
+    }
+    
+    table.wikitable>*>tr:nth-child(even)>td:not([style]) {
+        background-color: #f7f7f7 !important;
+    }
+    
+    @media (max-width: 1100px) {
+        #content {
+            max-width: none !important;
+            border-width: 1px 0 1px 1px !important;
+            box-shadow: none !important;
+        }
+        
+        #mw-head {
+            right: 0 !important;
+            max-width: none !important;
+        }
+        
+        #footer {
+            max-width: none !important;
+        }
+    }
+    
+}

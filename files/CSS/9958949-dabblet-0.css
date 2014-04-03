@@ -1,0 +1,24 @@
+/**
+ * The first commented line is your dabblet’s title
+ */
+html {
+background: #f06;
+background: linear-gradient(45deg, #f06, yellow);
+min-height: 100%;
+}
+#number1 {
+color:black;
+}
+
+#number2 {
+color:blue;
+}
+
+.class1 {
+font-weight: bold;
+}
+
+.class2 {
+font-weight: normal;
+color: green;
+}

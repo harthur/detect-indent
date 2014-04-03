@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Leaflet w/ geojson Polygons & addStyle()</title>
+        <script type="text/javascript" src="http://leaflet.cloudmade.com/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="http://leaflet.cloudmade.com/dist/leaflet.ie.css" /><![endif]-->
+
+        <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.3"></script>
+<script type="text/javascript" src="./sfBOSleaf.geojson" ></script>
+        <style type="text/css">
+            #map {
+                width: 600px;
+                height: 400px;
+                margin: 0 0 1em 0;
+                margin-right:auto;
+                margin-left:auto;
+            }
+
+
+        </style>
+    </head>
+    <body onload="initialize()">
+        <div id="map" ></div>
+
+        <script type="text/javascript">
+            function initialize() {
+
+
+
+                    var watercolor = new  L.StamenTileLayer("watercolor");
+                    var terrain = new L.StamenTileLayer("terrain");
+                    var toner= new  L.StamenTileLayer("toner");
+
+                    var bases = {
+                        "Watercolor":watercolor,
+                        "Terrain":terrain,
+                        "Toner":toner
+                    }
+                    var map = new L.Map('map', {
+                                        center: [37.75, -122.45],
+                                        zoom:11,
+                                        layers:toner
+                                        })
+
+
+                    var bosBords = L.geoJson().addTo(map);
+                    bosBords.addData(bords)
+                    .setStyle(
+                      {fillColor:'green',
+                      color:'pink'}
+
+                    );
+
+
+              //       L.control.layers(bases).addTo(map);
+
+//console.log()bords.features.properties.DISTRICT)).map();
+            }
+
+            // ([37.75, -122.45], 12)
+
+        </script>
+    </body>
+</html>

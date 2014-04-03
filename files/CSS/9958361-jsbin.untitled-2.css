@@ -1,0 +1,24 @@
+.sky {
+  height: 300px;
+  width: 100%;
+  background: #000;
+}
+
+.star {
+  width: 1px;
+  height: 1px;
+  background: #FFF;
+  border-radius: 5px;
+  box-shadow: 2px 0 4px #CCC;
+  position: absolute;
+  opacity: 0;
+  -webkit-animation-name: blink;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes blink {  
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}

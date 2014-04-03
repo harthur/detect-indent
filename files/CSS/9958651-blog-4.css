@@ -1,0 +1,10 @@
+/* <system section="theme" selected="11696248318757940905"> */
+@import url("http://hatenablog.com/theme/11696248318757940905.css");
+/* </system> */
+
+#blog-title {
+    border-top: none;
+}
+.entry {
+    border-bottom: none;
+}

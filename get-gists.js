@@ -3,7 +3,7 @@ var https = require("https"),
     path = require("path");
 
 var dir = "files";
-var langs = ['JavaScript', 'CSS', 'HTML'];
+var langs = ['CSS'];
 var interval = 1000 * 60 * 15; // 15 minutes
 
 //setInterval(function() {

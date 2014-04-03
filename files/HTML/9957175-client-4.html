@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>jsonp test</title>
+		<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>		
+		<script type="text/javascript">
+            $(function(){				
+                $('#select_link').click(function(e){
+                    e.preventDefault();
+                    console.log('select_link clicked');
+                    
+                     /*$.ajax({
+                        dataType: 'jsonp',
+                        data: "data=yeah",						
+                        jsonp: 'callback',
+                        url: 'http://localhost:3000/endpoint?callback=?',						
+                        success: function(data) {
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+                        }
+                    });*/
+
+					var data = {};
+					data.title = "title";
+					data.message = "message";
+					
+					$.ajax({
+						type: 'POST',
+						data: JSON.stringify(data),
+				        contentType: 'application/json',
+                        url: 'http://localhost:3000/endpoint',						
+                        success: function(data) {
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+                        }
+                    });
+
+					/*$.ajax('http://localhost:3000/endpoint', {
+					        type: 'POST',
+					        data: JSON.stringify(data),
+					        contentType: 'application/json',
+					        success: function() { console.log('success');},
+					        error  : function() { console.log('error');}
+					});*/
+                });				
+            });
+        </script>
+    </head>
+    <body>
+        <div id="select_div"><a href="#" id="select_link">Test</a></div>    
+    </body>
+</html>

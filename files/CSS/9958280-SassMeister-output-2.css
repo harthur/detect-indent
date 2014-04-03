@@ -1,0 +1,44 @@
+/*
+https://github.com/lunelson/sass-list-maps
+
+"List-Maps" use lists to re-create 'map' functionality in libsass. 
+All standard map functions from Sass 3.3.x are reproduced, and more.
+
+CORE FUNCTIONS:
+
+map-keys($list-map...)
+map-values($list-map...)
+map-has-key($list-map, $key)
+map-get($list-map, $key)
+map-merge($list-map1, $list-map2)
+map-remove($list-map, $key)
+
+ADVANCED FUNCTIONS:
+
+map-get-z($list-map, $keys...) // nested or 'deep' map-get; depth spec'd by chain of $keys
+map-merge-z($list-map, $keys-and-value...) // nested or 'deep' map-merge; last argument is $value
+
+get($list-map, $key[s]...) // universal, for any depth
+merge($list-map1, $list-map2) // universal for any depth
+set($list-map, $key[s...], $value) // alternate syntax for merging
+map-inspect($list...) // new function as of 0.9.5, outputs map as string
+
+HELPER FUNCTIONS:
+
+set-nth($list, $index, $value, [$sep: 'comma']) // functions like set-nth() from sass 3.3.x
+key($pair) // returns 'key' from a key-value pair
+value($pair) // returns 'value' from a key-value pair
+map-prev-key($list-map, $key) // retrieves preceding key in map
+map-next-key($list-map, $key) // retrieves proceding key in map
+
+*/
+/*
+Required output by looping through the map. Is it possible to just grab the value (e.g. non-sequential as per '1' and '4' below) at the keynumber a la: http://benfrain.com/using-lists-with-maps-in-sass-3-3/
+*/
+.item-1 {
+  background-color: #25765c;
+  border: 1px solid #0f6644; }
+
+.item-4 {
+  background-color: #6d5e4d;
+  border: 1px solid #635445; }

@@ -1,0 +1,67 @@
+/*  -------------------------------------------------
+
+    MINIMAL TWITTER FOR FLUID / USERSTYLES
+    Special thanks to: 
+    Max Fenton (@maxfenton) for kicking this off
+
+    ------------------------------------------------- */
+
+
+.trends, .bird-topbar-etched, .wtf-module, .site-footer, .topics {
+    display: none !important;
+}
+
+.wrapper, .wrapper-narrow, .wrapper-permalink {
+    background: none !important;
+    max-width: 37em !important;
+}
+
+.dashboard {
+    float: none !important;
+    width: 100% !important;
+}
+
+.content-main {
+    float: none !important;
+    width: 100% !important;
+}
+
+.global-nav {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 37em !important;
+    margin: 0 auto !important;
+}
+
+.pull-right, .pull-right .nav, .secondary-nav {
+    float: left !important;
+}
+
+.global-nav .form-search {
+    width: 225px !important;
+}
+
+.topbar-divider {
+    display: none !important;
+}
+
+.topbar {
+    background-color: #333 !important;
+}
+
+.topbar-tweet-btn {
+    margin-left: 17px !important;
+}
+
+body {
+    background-image: none !important;
+    background-color: #333 !important;
+}
+
+.tweet-content .tweet-box {
+    max-width: 26em !important;
+}
+
+.profile-card-inner {
+    width: 40% !important;
+}

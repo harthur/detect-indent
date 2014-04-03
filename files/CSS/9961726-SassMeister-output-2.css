@@ -1,0 +1,184 @@
+/*== Menu Styling ==*/
+#ej-navigation {
+  overflow: visible !important;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer {
+  max-width: 990px;
+  /*base*/
+  margin: 0px auto;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal {
+  font-family: Tahoma, Verdana, Tahoma, Arial, Sans-Serif;
+  font-weight: bold;
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .ms-hidden {
+  display: none;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal a, #ej-navigation .ms-topNavContainer .menu-horizontal a:hover {
+  text-decoration: none;
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root {
+  margin-bottom: 0px;
+  /*base*/
+  margin-top: 0px;
+  /*base*/
+  padding-left: 0;
+  /*base*/
+  padding-bottom: 0px;
+  /*base*/
+  list-style: none;
+  /*base*/
+  width: 100%;
+  /*base*/
+  display: table;
+  /*base*/
+  box-sizing: border-box;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root > li {
+  border-top: 0px;
+  /*base*/
+  border-bottom: 0px;
+  /*base*/
+  padding-top: 0px;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li {
+  display: table-cell;
+  /*base*/
+  float: none;
+  /*base*/
+  position: relative;
+  /*base*/
+  text-align: center;
+  /*base*/
+  margin: 1px;
+  /*base*/
+  cursor: pointer;
+  /*base*/
+  font-size: 13px;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li:hover .ff-bug-container ul {
+  display: block;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li a {
+  height: auto;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .static.menu-item {
+  display: block;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .static.menu-item .additional-background {
+  display: table;
+  /*base*/
+  vertical-align: middle;
+  /*base*/
+  height: 100%;
+  /*base*/
+  width: 100%;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .static.menu-item .additional-background .menu-item-text {
+  display: table-cell;
+  /*base*/
+  vertical-align: middle;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li:first-child {
+  border: none;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .ff-bug-container {
+  position: relative;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .ff-bug-container ul {
+  font-size: 12px;
+  /*base*/
+  line-height: normal;
+  /*base*/
+  margin: 0px;
+  /*base*/
+  padding: 0px;
+  /*base*/
+  position: absolute;
+  /*base*/
+  right: 0px;
+  /*base*/
+  z-index: 1001;
+  /*base*/
+  display: none;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .ff-bug-container ul li {
+  margin: 0px;
+  /*base*/
+  display: block;
+  /*base*/
+  text-align: left;
+  /*base*/
+  width: 200px;
+  /*base*/
+  border: 0px;
+  /*base*/
+  font-size: 12px;
+  /*base*/
+  line-height: normal;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .ff-bug-container ul li .static.menu-item {
+  border: 0px;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .ff-bug-container ul li .static.menu-item .additional-background .menu-item-text {
+  border: 0px;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .ff-bug-container ul li:first-child {
+  border-radius: 0;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .ff-bug-container ul li:last-child {
+  border-radius: 0;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .ff-bug-container ul li a {
+  padding-left: 1em;
+  /*base*/
+  padding-right: 1em;
+  /*base*/
+  height: 51px;
+  /*base*/
+}
+#ej-navigation .ms-topNavContainer .menu-horizontal .root li .dropdown-menu {
+  position: absolute;
+  /*base*/
+  top: 100%;
+  /*base*/
+  right: 0px;
+  /*base*/
+  z-index: 1000;
+  /*base*/
+  float: left;
+  /*base*/
+  min-width: 160px;
+  /*base*/
+  margin: 2px 0 0;
+  /*base*/
+  list-style: none;
+  /*base*/
+  font-size: 14px;
+  /*base*/
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  /*base*/
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  /*base*/
+  background-clip: padding-box;
+  /*base*/
+}

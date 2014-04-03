@@ -1,0 +1,10 @@
+<script type="text/javascript">
+CQ.wcm.EditBase._showDialog = CQ.wcm.EditBase.showDialog;
+CQ.cloudservices.getEditOk = function() {
+    return CQ.Ext.getCmp($CQ(".cq-btn-ok")[0].id);
+}
+CQ.wcm.EditBase.showDialog = function(editComponent, type, ignoreIsContainer) {
+    CQ.wcm.EditBase._showDialog(editComponent, type, ignoreIsContainer);
+    CQ.cloudservices.getEditOk().disable();
+}
+</script>

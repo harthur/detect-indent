@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+}
+
+div {
+  height: 100vh;
+}
+
+.secondary {
+  width: 300px;
+  float: left;
+  margin-right: -100%;
+  margin-left: 0;
+  background: red;
+}
+
+.primary {
+  width: 100px;
+  float: left;
+  margin-right: -100%;
+  margin-left: -webkit-calc((300px + 1em) + (((100% - (400px + 3em)) / (3)) * 1 + 1em));
+  margin-left: calc((300px + 1em) + (((100% - (400px + 3em)) / (3)) * 1 + 1em));
+  background: orange;
+}
+
+.quaternary {
+  width: -webkit-calc((((100% - (400px + 3em)) / (3))) * 1);
+  width: calc((((100% - (400px + 3em)) / (3))) * 1);
+  float: left;
+  margin-right: -100%;
+  margin-left: -webkit-calc((300px + 1em));
+  margin-left: calc((300px + 1em));
+  background: blue;
+}
+
+.tertiary {
+  width: -webkit-calc((((100% - (400px + 3em)) / (3))) * 2);
+  width: calc((((100% - (400px + 3em)) / (3))) * 2);
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  background: green;
+}

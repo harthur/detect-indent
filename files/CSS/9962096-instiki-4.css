@@ -1,0 +1,277 @@
+/*
+**  Jabbett's Responsive Instiki Stylesheet
+**  Make Instiki feel like a modern web application (almost).
+**  Replace public/stylesheets/instiki.css with this file.
+*/
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0b1 | 201101
+   NOTE: WORK IN PROGRESS
+   USE WITH CAUTION AND TEST WITH ABANDON */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/** END RESET **/
+
+body, input { font-family: Helvetica, Arial, sans-serif; }
+body { padding:3em; }
+input { border-width: 1px; border-style: solid; border-color: #999; padding-left: 0.25em; padding-right: 0.25em; }
+input[type="text"] { font-size:12pt; }
+
+/* BEGIN Button Styling (Borrowed from Bootstrap) */
+
+button,
+input[type="submit"],
+input[type="button"] {
+    display: inline-block;
+    padding: 3px 8px;
+    margin-bottom: 0;
+    font-size: 10pt;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+button:focus,
+input[type="submit"]:focus,
+input[type="button"]:focus,
+button:active:focus,
+input[type="submit"]:active:focus,
+input[type="button"]:active:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+button:hover,
+button:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="button"]:hover,
+input[type="button"]:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+
+button[disabled],
+input[type="submit"][disabled],
+input[type="button"][disabled] {
+    pointer-events: none;
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+}
+
+/* END Button Styling */
+
+strong, b { font-weight: bold; }
+em, i { font-style: italic; }
+code { font-family: monospace; }
+
+h1, h2, h3, h4, h5 { margin-bottom:6pt; }
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1em; }
+.pageType { font-size:50%; color: #999; }
+
+p { margin: 15px 0; }
+ul, ol { padding-left:1.5em; }
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+
+#svg_logo { display:none; }
+#pageName { margin-bottom: 0.5em; }
+#pageName .webName { font-size:0.75em; }
+
+.navigation { color: white; font-size:10pt; line-height:1.5em; padding: 0.5em 0; margin-bottom:1em; }
+.navigation b, .navigation span { color: #333; }
+.navigation form, .navigation fieldset { display: inline; }
+.navigation form input { border-radius: 12px; font-size:10pt; }
+.navigation .skipNav { display: none; }
+
+#revision, #setup, #remove_orphaned_pages, #delete_web { max-width:70em; }
+
+#revision {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(202, 202, 202);
+    padding: 30px;
+    font-size: 15px;
+    line-height: 1.7;
+    margin:1em 0;
+}
+
+#revision p, #revision blockquote, #revision ul, #revision ol, #revision dl, #revision table, #revision pre {
+    margin: 15px 0;
+}
+
+#revision h1, #revision h2, #revision h3, #revision h4, #revision h5, #revision h6 {
+    margin: 1em 0 15px;
+    padding: 0;
+    font-weight: bold;
+    line-height: 1.7;
+    cursor: text;
+    position: relative;
+}
+
+#revision h1 { font-size: 2.5em; border-bottom: 1px solid rgb(221, 221, 221); }
+#revision h2 { font-size: 2em; border-bottom: 1px solid rgb(238, 238, 238); }
+#revision h3 { font-size: 1.5em; }
+#revision h4 { font-size: 1.2em; }
+#revision h5 { font-size: 1em; }
+#revision h6 { color: rgb(119, 119, 119); font-size: 1em; }
+
+#revision pre {
+    background-color: rgb(248, 248, 248);
+    border: 1px solid rgb(221, 221, 221);
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+    border-radius: 3px;
+}
+
+#revision code, #revision tt {
+    margin: 0;
+    border: 1px solid rgb(221, 221, 221);
+    background-color: rgb(248, 248, 248);
+    border-radius: 3px;
+    max-width: 100%;
+    display: inline-block;
+    overflow: auto;
+    vertical-align: middle;
+    line-height: 1.3;
+    padding: 0;
+}
+
+#revision pre code {
+    border: none;
+    white-space: pre;
+}
+
+#revision code {
+    white-space: nowrap;
+}
+
+#revision > *:first-child {
+    margin-top:0;
+}
+
+.newWikiWord { color: #990000; }
+.newWikiWord a { opacity: 0.6; text-decoration: none; background-color: #b94a48; color: white !important; padding:1px 4px; font-size:11px; border-radius: 4px; margin-left:2pt; vertical-align:2px; }
+.newWikiWord a:hover { opacity: 1;}
+
+.byline { color:#666; font-size:10pt; margin-bottom:2em; }
+
+#footer, #footer a { font-size:10pt; color:#999; }
+
+/* Editing */
+
+#hidebutton { margin-bottom:0.5em; }
+
+#MarkupHelp { width:25%; float:right; font-size:10pt; padding-bottom:4em; }
+
+#MarkupHelp h3 { font-size:12pt; margin-top:0.75rem; font-weight: bold; }
+#MarkupHelp table + h3 { margin-top:1em; margin-bottom:0.25rem; }
+#MarkupHelp table td { padding:4pt 0; }
+#MarkupHelp table td:first-child { font-family: monospace; }
+#MarkupHelp p[style] { padding-top:0.75rem; }
+
+#editForm { width:70%; }
+div#editForm form#editForm { width:100%; }
+#editForm textarea#content { font-family: monospace; width:100%; padding:1em; height:400px; font-size:12pt; margin-bottom:0.5em; }
+#editForm #editFormButtons #author { margin-right:1em; }
+#editForm #editFormButtons > span { margin-left:0.5em; }
+#editForm #editFormButtons .unlock { color: #999; }
+
+.errorExplanation { color:#990000; margin-bottom:1em; }
+
+@media (max-width: 768px) {
+    #hidebutton, #MarkupHelp { display: none; }
+    #editForm { width: 100%; }
+    body { padding: 1.5em; }
+}
+
+/* Admin */
+
+#setup .help {
+    background-color:#eee;
+    padding:1em;
+    margin:1em 0;
+}
+
+#setup .inputBox {
+    margin:1em 0 2em;
+}
+
+#allPages form {
+    margin-bottom:2em;
+}
+
+#allPages ul { margin-bottom:1em; }

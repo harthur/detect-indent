@@ -1,0 +1,8 @@
+.my-selector {
+  border-radius: 10px;
+  background: linear-gradient(#ffffff 0%, #000000 100%);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  content: ie, ie-mobile;
+  content: true;
+}

@@ -1,0 +1,190 @@
+/**
+ * Cubeman
+ */
+
+#cubeman{
+	margin-top:100px;
+}
+
+#spiderman{
+	margin-top:200px;
+}
+
+//BASE:
+
+@head-width:50px;
+@head-height:60px;
+@head-depth:50px;
+
+@body-width:25px;
+@body-height:40px;
+@body-depth:25px;
+
+@limb-width:10px;
+@limb-height:40px;
+@limb-depth:10px;
+
+
+.cubeman-wrap{
+	-webkit-perspective: 500;
+	-webkit-perspective-origin: 50% 50%;
+	-webkit-transform-style: preserve-3d;
+	width:@head-width;
+	height:@head-height;
+	width:100%;
+	-webkit-transform:rotateX(-10deg);
+}
+
+.cubeman-all{
+	display:inline-block;
+	-webkit-transform-style: preserve-3d;
+	width:@head-width;
+	height:200px;
+	position:relative;
+	left:50%;
+	margin-left:-100px;
+}
+
+.cubeman-head{
+	.cube(@head-width, @head-height, @head-depth);
+}
+
+.cubeman-body{
+	-webkit-transform:translateX(@head-width/2 - @body-width/2) translateY(@head-height);
+	.cube(@body-width, @body-height, @body-depth);
+}
+
+.cubeman-limb{
+	.cube(@limb-width, @limb-height, @limb-depth);
+
+	&;.left-arm{
+		-webkit-transform:translateY(@head-height) translateX(@head-width/2-@limb-width/2 - @body-width) rotateZ(10deg);
+	}
+
+	&;.right-arm{
+		-webkit-transform:translateY(@head-height) translateX(@head-width/2-@limb-width/2 + @body-width) rotateZ(-10deg);
+	}
+
+	&;.left-leg{
+		-webkit-transform:translateY(@head-height + @body-height) translateX(@head-width/2-@limb-width/2 - @limb-width);
+	}
+
+	&;.right-leg{
+		-webkit-transform:translateY(@head-height + @body-height) translateX(@head-width/2-@limb-width/2 + @limb-width);
+	}
+}
+
+.cube(@width, @height, @depth){
+	-webkit-transform-style: preserve-3d;
+	display: inline-block;
+	position:absolute;
+	width:@width;
+	height:@height;
+
+
+	.face{
+		position:absolute;
+		border:1px dashed #5e5e5e;
+		outline: 1px solid transparent;
+		-webkit-transform-origin: center center;
+		background-color:#eee;
+
+		&;.front{
+			width:@width;
+			height:@height;
+			-webkit-transform:translateZ(@depth/2);
+		}
+
+		&;.back{
+			width:@width;
+			height:@height;
+			-webkit-transform:translateZ(-@depth/2) rotateY(180deg);
+		}
+
+		&;.left{
+			width:@depth;
+			height:@height;
+			-webkit-transform: rotateY(270deg) translateZ(@width/2);
+		}
+
+		&;.right{
+			width:@depth;
+			height:@height;
+			-webkit-transform: rotateY(-270deg) translateZ(@width/2);
+		}
+
+		&;.top{
+			width:@width;
+			height:@depth;
+			-webkit-transform: rotateX(-90deg) translateZ(-@width/2 + @height);
+		}
+
+		&;.bottom{
+			width:@width;
+			height:@depth;
+			-webkit-transform: rotateX(90deg) translateZ(@width/2);
+		}
+	}
+}
+
+//SKINS
+//Spiderman skin
+.spiderman{
+
+	.face{
+		background-image:url('../img/skin-spiderman.png');
+		background-repeat:no-repeat;
+		border:none !important;
+		background-size:200px 200px;
+	}
+
+	.cubeman-head{
+		.front{
+			background-position:-50px -50px;
+		}
+		.back{
+			background-position:-150px -50px;
+		}
+		.left{
+			background-position:0 -50px;
+		}
+		.right{
+			background-position:-100px -50px;
+		}
+		.top{
+			background-position:-50px 0;
+		}
+		.bottom{
+			background-position:0 0;
+		}
+	}
+
+	.cubeman-body{
+		.front{
+			background-position:-25px -110px;
+		}
+		.back{
+			background-position:-50px -110px;
+		}
+		.left{
+			background-position:0 -110px;
+		}
+		.right{
+			background-position:-75px -110px;
+		}
+	}
+}
+
+//ANIMATIONS:
+.cubeman-all{
+	-webkit-animation:spin 10s linear infinite;
+}
+
+@-webkit-keyframes spin{
+	from{
+		-webkit-transform:rotateY(0deg);
+	}
+	to{
+		-webkit-transform:rotateY(360deg);
+	}
+}

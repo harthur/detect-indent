@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<title>Sandbox</title>
+<meta charset="utf-8" />
+<style>
+.deleteThis {
+  display: none;
+}
+.band {
+  border: 1px dotted #ccc;
+  padding: 5px 10px;
+}
+</style>
+</head>
+<body>
+  <h1>Test</h1>
+  <h2>Show</h2>
+  <p id="picker"><input type="checkbox" id="0" checked> John Lennon<br />
+  <input type="checkbox" id="1" checked> Paul McCartney<br />
+  <input type="checkbox" id="2" checked> George Harrison<br />
+  <input type="checkbox" id="3" checked> Ringo Starr</p>
+
+
+<button id="random">Random</button>
+<button id="normal">Normal</button>
+  
+  <h2>Output</h2>
+  <div class="band">
+      <div class="member" id="pic0">
+            John Lennon
+      </div>
+      <div class="member" id="pic1">
+          Paul McCartney
+      </div>
+      <div class="member" id="pic2">
+          George Harrison
+      </div>
+      <div class="member" id="pic3">
+          Ringo Starr
+      </div>
+</div>
+</body>
+</html>
