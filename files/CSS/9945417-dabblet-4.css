@@ -1,0 +1,25 @@
+/**
+ * Simple Animation
+ */
+body {
+	padding: 0;
+	margin: 100px;
+}
+.animDiv{width:200px; height:200px; border-radius:100%; border: 8px solid #333; margin:10px auto;
+position:relative;
+background:
+     linear-gradient(180deg, #c33 29%, transparent 0 ),
+     linear-gradient(-115deg, #FCD209 45%, transparent 0),
+     linear-gradient(-50deg, #FCD209 35.5%, transparent 0),
+     linear-gradient(-60deg, rgba(0, 0, 0, .3) 40%, transparent 0),
+     linear-gradient(50deg, #49AE48 35.5%, transparent 30px),
+     linear-gradient(0deg, #49AE48 40%, transparent 0%),
+     linear-gradient(40deg, rgba(0, 0, 0, .3) 40%, transparent 0);
+background-color: #c33;
+
+}
+
+.animDiv:after{content: ""; width:32%; height:32%; background:#09b; border-radius:100%; position:absolute; top:0; bottom:0; left:0; right:0; margin:auto; border:11px solid #fff; box-shadow:inset -5px -5px 0 8px rgba(0, 0, 0, .1)}
+
+.animDiv:before{content: "";  width:0px; height:0px; position:absolute; top:29%;  left:50%;  margin:auto; border: solid; border-width: 15px 75px 10px 0px;
+ border-color: rgba(0, 0, 0, .3) transparent transparent transparent;}

@@ -1,0 +1,69 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Offline / Online Api Bağlantı Tespiti</title>
+	
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	var addEvent = (function () {
+	  if (document.addEventListener) {
+		return function (el, type, fn) {
+		  if (el && el.nodeName || el === window) {
+			el.addEventListener(type, fn, false);
+		  } else if (el && el.length) {
+			for (var i = 0; i < el.length; i++) {
+			  addEvent(el[i], type, fn);
+			}
+		  }
+		};
+	  } else {
+		return function (el, type, fn) {
+		  if (el && el.nodeName || el === window) {
+			el.attachEvent('on' + type, function () { return fn.call(el, window.event); });
+		  } else if (el && el.length) {
+			for (var i = 0; i < el.length; i++) {
+			  addEvent(el[i], type, fn);
+			}
+		  }
+		};
+	  }
+	})();
+	var netstatus;
+	function online(event) {
+		 netstatus = navigator.onLine ? 'online' : 'offline';
+		 if(netstatus=='offline') { $("#internetstatu").modal("show"); }
+		 else { $("#internetstatu").modal("hide"); } 
+	}
+	addEvent(window, 'online', online);
+	addEvent(window, 'offline', online);
+	online({ type: 'ready' });
+	</script>
+</head>
+<body>
+	<div class="container"><br>
+		<div class="well well-sm" style="padding-left:30px;">
+			<h3>Demoyu Test Etmek için Lütfen internet bağlantınızı kesin..</h3>
+			<p> Diğer HTML5 yazılarını Okumak için <a href="http://mustafaercel.com/tag/html5">Bu Adresi</a> ziyaret edebilirsiniz</p>
+		</div>
+	</div>
+</body>
+</html>
+   <div id="internetstatu" class="modal fade in" tabindex="-1" aria-hidden="false" style="display: none;">
+	<div class="modal-dialog">
+	   <div class="modal-content">
+		  <div class="modal-header">
+			 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+			 <h4 class="modal-title">Durumunuz</h4>
+		  </div>
+		  <div class="modal-body">
+			<h4 style="font-family:Tahoma;"><i class="icon-signal
+			"></i>&nbsp;  İnternet Bağlantınız Kesildi.Lütfen Bağlantınızı Kontrol Ediniz</h3>        
+		 </div>
+		  </div>
+	   </div>
+</div>

@@ -1,0 +1,59 @@
+#cursos_lista{
+	width:100%;
+	}
+
+
+#cursos_lista ul{
+	list-style-type: none;
+	margin:0px 0px 0px 66px;
+}
+
+#cursos_lista ul li{
+	float: left;
+    position:relative;
+    width: 150px;
+    margin: 15px;
+}
+
+#cursos_lista span{
+	margin:5px 3px 0px 10px;
+	font:40px Arial, Helvetica, sans-serif;
+	color:#fff;
+	background-color:#0066CC;
+	text-align:center;
+	float:left;
+}
+
+#cursos_lista img{
+	margin:5px 3px 15px 0px;
+	border:0;
+	float:left;
+}
+
+#cursos_lista p{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#666666;
+	float:left;
+}
+
+#cursos_lista h1{
+	font:12px Arial, Helvetica, sans-serif;
+	color:#0066CC;
+	text-align:center;
+	float:left;
+}
+
+#cursos_lista h2{
+	font:12px Georgia, "Times New Roman", Times, serif;
+	color:#666666;
+	float:left;
+}
+
+
+.h1-curso {
+	font:18px Arial, Helvetica, sans-serif;
+	color:#666666;
+	margin:3px 0px 0px 70px;
+	font-weight:bold;
+	float:left;
+}

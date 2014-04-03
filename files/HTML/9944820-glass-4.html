@@ -1,0 +1,100 @@
+<html style="width:100%; height:100%; overflow:hidden">
+<head>
+<!-- You can include external scripts here like so... -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>-->
+</head>
+<body style="width:100%; height:100%; overflow:hidden; margin:0">
+<canvas id="canvas" width="640" height="360" style="display:block"></canvas>
+<script>
+
+function drawModeName(name) {
+        upperBase = 40;
+        context.fillStyle = "rgb(200,200,200)";
+        context.font = '28pt Calibri';
+        context.textAlign = 'left';
+        context.fillText(name, 10, upperBase);
+}
+
+function drawSecondLine(name) {
+        upperBase = 90;
+        context.fillStyle = "rgb(200,200,200)";
+        context.font = '28pt Calibri';
+        context.textAlign = 'left';
+        context.fillText(name, 10, upperBase);
+}
+
+function clearCanvas() {
+    context.fillStyle = "rgb(0, 0, 0)";
+    context.fillRect(0, 0, 640, 360);
+}
+
+var i = 0;
+var secondLineText = "Second line";
+
+Date.prototype.today = function () { 
+    return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
+}
+
+Date.prototype.timeNow = function () {
+     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+}
+
+function draw() {
+    clearCanvas();
+    drawModeName("" + i);
+    drawSecondLine(secondLineText);
+}
+
+currentTimeString = function () {
+    return new Date().today() + " @ " + new Date().timeNow();
+}
+
+function server() {
+    WS.log('Welcome to WearScript');
+    WS.say('Welcome to WearScript');
+    WS.sound('SUCCESS');
+    
+    clearCanvas();
+    drawModeName("Rock and roll");
+    
+    setInterval(function() {i = currentTimeString(); draw();}, 1000);
+    
+    setInterval(function() {
+        WS.say("waking"); 
+        WS.wake();
+        // secondLineText = "LastWake: " + new Date().today() + " @ " + new Date().timeNow();
+        secondLineText = "LastWaaake: " + currentTimeString();
+        thirdLineText = "Time since last wake: "
+        //secondLineText = "current time"; 
+        draw();
+    }, 100000);
+    // Below this are more examples, uncomment to use them
+    WS.liveCardCreate(false, .2);
+    /*
+    var tree = new WS.Cards();
+    tree.add('Body text', 'Footer text', function () {WS.say('selected')}, function () {WS.say('tapped')}, 'Menu0', function () {WS.say('menu0')}, 'Menu1', function () {WS.say('menu1')});
+    tree.add('Body text', 'Footer text', (new WS.Cards()).add('Child0', '0').add('Child1', '1'));
+    WS.cardTree(tree);
+    WS.displayCardTree();
+    */
+    /*
+    WS.speechRecognize('Say Something', function (data) {
+        WS.log('speech: ' + data);
+        WS.say('you said ' + data);
+    });
+    */
+    //WS.cameraPhoto();
+    //WS.cameraVideo();
+    //WS.cameraOff();
+    //WS.shutdown();
+}
+function main() {
+    if (WS.scriptVersion(1)) return;
+    context = document.getElementById('canvas').getContext("2d");
+    WS.serverConnect('{{WSUrl}}', server);
+}
+window.onload = main;
+</script>
+</body>
+</html>

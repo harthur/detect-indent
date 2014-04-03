@@ -6,7 +6,7 @@ var dir = "files";
 var langs = ['JavaScript', 'CSS', 'HTML'];
 var interval = 1000 * 60 * 15; // 15 minutes
 
-setInterval(function() {
+//setInterval(function() {
   console.log("fetching recent gists");
 
   getRecentGists(function(gists) {
@@ -26,7 +26,7 @@ setInterval(function() {
       }
     }
   });
-}, interval);
+//}, interval);
 
 function saveGistFiles(gist) {
   for (var name in gist.files) {
