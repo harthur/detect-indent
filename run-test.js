@@ -2,7 +2,8 @@ var fs = require("fs"),
     path = require("path");
 
 var algos = {
-  gcd: require("./algos/gcd")
+  gcd: require("./algos/gcd"),
+  compare_lines: require("./algos/comparelines")
 };
 
 var dir = "files";
@@ -23,6 +24,7 @@ function getAlgoResults() {
     var counts = {};
     var lang = langs[i];
     var files = fs.readdirSync(path.join(dir, lang));
+    //files = files.slice(0, 5);
 
     for (var j in files) {
       var file = path.join(dir, lang, files[j]);
@@ -47,12 +49,15 @@ function detectInFile(file) {
   var contents = fs.readFileSync(file, { encoding: "utf-8"});
   var lines = contents.split("\n");
 
+  console.log("\ndetecting in ", file);
+
   var expected = getIndent(file);
   var results = {};
   for (var name in algos) {
     var algo = algos[name];
     var actual = algo(lines);
     results[name] = (actual == expected);
+    console.log("actual:", actual, "expected:", expected);
   }
   return results;
 }
