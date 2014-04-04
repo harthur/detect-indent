@@ -3,7 +3,8 @@ var fs = require("fs"),
 
 var algos = {
   gcd: require("./algos/gcd"),
-  compare_lines: require("./algos/comparelines")
+  compare_lines: require("./algos/comparelines"),
+  min: require("./algos/min")
 };
 
 var dir = "files";

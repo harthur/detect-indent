@@ -2,10 +2,10 @@
 module.exports = function(lines) {
   lines = lines.slice(0, 500);
 
-  var last = 0;
-  var tabs = 0;
-  var total = 0;
   var spaces = {};  // # spaces indent -> # lines with that indent
+  var last = 0;     // indentation width of the last line we saw
+  var tabs = 0;     // # of lines that start with a tab
+  var total = 0;    // # of indented lines (non-zero indent)
 
   lines.forEach(function (text) {
     if (text[0] === ("\t")) {
@@ -17,14 +17,13 @@ module.exports = function(lines) {
     while (text[width] === " ") {
       width++;
     }
-    if (width <= 1) {
-      last = 0;
-      return;
-    }
+    // don't count lines that are all spaces
     if (width == text.length) {
       return;
     }
-    total++;
+    if (width > 0) {
+      total++;
+    }
 
     var indent = Math.abs(width - last);
     if (indent) {
@@ -33,6 +32,7 @@ module.exports = function(lines) {
     last = width;
   });
 
+  // this file is not indented at all
   if (total == 0) {
     return null;
   }
@@ -43,8 +43,7 @@ module.exports = function(lines) {
     return "tabs";
   }
 
-  console.log("spaces", spaces);
-
+  // find most frequent none-zero width difference between adjacent lines
   var freqIndent = null, max = 0;
   for (var width in spaces) {
     var tally = spaces[width];
@@ -53,7 +52,6 @@ module.exports = function(lines) {
       freqIndent = width;
     }
   }
-  console.log("max", max, "freqIndent", freqIndent);
 
   return freqIndent;
 }

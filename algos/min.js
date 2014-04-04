@@ -39,27 +39,18 @@ module.exports = function(lines) {
     return "tabs";
   }
 
-  // get the most common widths to remove outliers
-  var widths = [];
+  // remove outliers and get the minimum width
+  var minWidth = Infinity;
   for (var width in spaces) {
     var count = spaces[width];
-    if (notOutlier(total, count)) {
-      widths.push(parseInt(width, 10));
+    if (notOutlier(total, count) && width < minWidth) {
+      minWidth = width;
     }
   }
-  if (!widths.length) {
+  if (minWidth == Infinity) {
     return null;
   }
-
-  // now get the largest width that divides all of them
-  var indent = widths.reduce(gcd);
-
-  return indent;
-}
-
-/* Greatest common denominator of two numbers */
-function gcd(n, m) {
-  return m > 0 ? gcd(m, n % m) : n;
+  return minWidth;
 }
 
 function notOutlier(total, count) {
