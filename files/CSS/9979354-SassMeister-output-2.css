@@ -1,0 +1,35 @@
+.info, .warning, .error {
+  color: #222;
+  text-align: center;
+  margin: 1em;
+  padding: .5em;
+  max-width: 200px;
+  border: 1px solid #666;
+}
+
+h1 {
+  color: green;
+}
+
+.info {
+  background-color: #ffff88;
+}
+h1 {
+  color: #ffff88;
+}
+
+.warning {
+  color: #000;
+  background-color: #ff9900;
+}
+h1 {
+  color: #ff9900;
+}
+
+.error {
+  color: #EEE;
+  background-color: #cc0000;
+}
+h1 {
+  color: #cc0000;
+}

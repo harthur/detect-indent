@@ -1,0 +1,64 @@
+@charset "utf-8";
+html, body {
+  position: relative;
+  font-family: 'Comic Sans MS','Adobe 仿宋 Std R', 'LiHei Pro', '微軟正黑體', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: purple;
+  background-image:url(http://subtlepatterns.com/patterns/skulls.png)
+  }
+
+.top{
+  text-align: center;
+  border : solid #63dec9;
+  background-color:rgba(248,248,255,0.5);
+  margin: 20px;
+  padding: 10px;
+  -webkit-border-radius:15px;
+  -webkit-box-shadow: #666 5px 5px 3px; 
+}
+
+th{
+  width:150px;
+}
+
+.page{
+  color:blue;
+  margin: 0px auto;
+}
+
+.grid_10{
+  width:300px;
+  color:black;
+  border : 8px solid #63dec9;
+  background:rgba(240,248,255,3);
+  margin: 20px auto;
+  padding: 10px;
+  -webkit-border-radius:15px 0px 15px 0px;
+  
+  
+}
+
+.personal{
+  margin:0px;
+  padding:10px;
+  list-style-type:none;
+}
+
+p{
+  color:purple;
+  margin:0px;
+  padding:0px;
+}
+
+img{
+  display:block;
+  width:250px;
+  margin:auto;
+  -webkit-border-radius:15px;
+}
+
+.FB{
+   margin:15px;
+  padding:10px;
+}

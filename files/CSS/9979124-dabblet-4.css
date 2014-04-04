@@ -1,0 +1,331 @@
+/**
+ * Matrix Meubels Voorbee
+ */
+
+body {
+	background-color: black;
+}
+
+
+#bg {
+  position: absolute; 
+  top: 0%; 
+  left: 0%; 
+  width: 100%; 
+  height: 100%;
+  z-index: -100;
+}
+
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+}
+
+#Menu {
+    opacity: 0.6;
+    width: 120%;
+    height: 7%;
+    margin-top: -1.1%;
+    margin-left: -1%;
+    background-color: white;
+    position: fixed;
+}
+    #Mission-button {
+        width: 4%;
+        height: 2%;
+        margin-top: 0.35%;
+        margin-left: 4%;
+        position: fixed;
+    }
+    
+        #Mission-button p {
+            text-align: center;
+            font-family: Helvetica;
+            font-weight: lighter;
+            font-size: 147%;
+            color: black;
+            position: relative;
+            margin-top: 11%;
+        }
+        #Mission-button p:hover {
+        	font-size: 160%;
+        	border-radius: 10%;
+        	border-color: black;
+        	border-style: solid;
+        	border-width: 1px;
+        }
+        
+        #Mission-button a {
+            text-decoration: none;
+        }
+
+    #Donate-button {
+        width: 4%;
+        height: 2%;
+        margin-top: 0.35%;
+        margin-left: 13%;
+        position: fixed;
+    }
+    
+        #Donate-button p {
+            text-align: center;
+            font-family: Helvetica;
+            font-weight: lighter;
+            font-size: 147%;
+            color: black;
+            position: relative;
+            margin-top: 11%;
+        }
+        #Donate-button p:hover {
+        	font-size: 160%;
+        	border-radius: 10%;
+        	border-color: black;
+        	border-style: solid;
+        	border-width: 1px;
+			width: 194%;
+        }
+        
+        #Donate-button a {
+            text-decoration: none;
+        }
+        
+         #Contact-button {
+        width: 4%;
+        height: 2%;
+        margin-top: 0.35%;
+        margin-left: 26%;
+        position: fixed;
+    }
+    
+        #Contact-button p {
+            text-align: center;
+            font-family: Helvetica;
+            font-weight: lighter;
+            font-size: 147%;
+            color: black;
+            position: relative;
+            margin-top: 11%;
+        }
+        #Contact-button p:hover {
+        	font-size: 160%;
+        	border-radius: 10%;
+        	border-color: black;
+        	border-style: solid;
+        	border-width: 1px;
+			width: 120%;
+        }
+        
+        #Contact-button a {
+            text-decoration: none;
+        }   
+
+    #Give-button {
+        width: 4%;
+        height: 2%;
+        margin-top: 0.35%;
+        margin-left: 69%;
+        position: fixed;
+    }
+    
+        #Give-button p {
+            text-align: center;
+            font-family: Helvetica;
+            font-weight: lighter;
+            font-size: 147%;
+            color: black;
+            position: relative;
+            margin-top: 11%;
+        }
+        #Give-button p:hover {
+        	font-size: 160%;
+        	border-radius: 10%;
+        	border-color: black;
+        	border-style: solid;
+        	border-width: 1px;
+			width: 102%;
+        }
+        
+        #Give-button a {
+            text-decoration: none;
+        }
+
+    #Buy-button {
+        width: 4%;
+        height: 2%;
+        margin-top: 0.35%;
+        margin-left: 80%;
+        position: fixed;
+    }
+    
+        #Buy-button p {
+            text-align: center;
+            font-family: Helvetica;
+            font-weight: lighter;
+            font-size: 147%;
+            color: black;
+            position: relative;
+            margin-top: 11%;
+        }
+        #Buy-button p:hover {
+        	font-size: 160%;
+        	border-radius: 10%;
+        	border-color: black;
+        	border-style: solid;
+        	border-width: 1px;
+			width: 102%;
+        }
+        
+        #Buy-button a {
+            text-decoration: none;
+        }
+
+    #Info-button {
+        width: 4%;
+        height: 2%;
+        margin-top: 0.35%;
+        margin-left: 90%;
+        position: fixed;
+    }
+    
+        #Info-button p {
+            text-align: center;
+            font-family: Helvetica;
+            font-weight: lighter;
+            font-size: 147%;
+            color: black;
+            position: relative;
+            margin-top: 11%;
+        }
+        #Info-button p:hover {
+        	font-size: 160%;
+        	border-radius: 10%;
+        	border-color: black;
+        	border-style: solid;
+        	border-width: 1px;
+			width: 65%;
+        }
+        
+        #Info-button a {
+            text-decoration: none;
+        }
+
+#Header {
+    width: 30%;
+    height: 12%;
+    margin-top: -0.5%;
+    margin-left: 35%;
+    margin-right: 35%;
+    position: fixed;
+}
+    #Header p {
+        font-family: Helvetica;
+        font-weight: lighter;
+        font-size: 390%;
+        text-align: center;
+        color: Black;
+        margin-top: -1%;
+    }
+    
+#Divider {
+    width:101%;
+    height: 1%;
+    background-color: white;
+    opacity: 0.3;
+    z-index: -4;
+    margin-top: 3%;
+    margin-left: -1%;
+    position: absolute;
+}
+
+#FurnitureFactHeader {
+	margin-left: 96%;	
+}
+
+#FurnitureFact {
+	opacity: 0.9;
+    width: 82%;
+    height: 10%;
+    background-color: white;
+    position: absolute;
+    margin-top: 7.9%;
+    margin-left: 7%;
+    margin-right: auto;
+    border-radius: 6px;
+    z-index: -2;
+    box-shadow: 10px 10px 10px #888888;
+}
+
+#FurnitureFact:hover {
+	opacity: 1.0;
+}
+    #FurnitureFact p {
+        color: black;
+        font-family: Helvetica;
+        font-weight: lighter;
+        font-size: 160%;
+        margin-top: 0.5%;
+        margin-left: 5%;
+        position: absolute;
+        text-align: center;
+        z-index: -1;
+	}
+	
+#ElectronicsFactHeader {
+ 	margin-left: 96%;
+ }
+ 
+#ElectronicsFact {
+	opacity: 0.9;
+    width: 82%;
+    height: 8%;
+    background-color: white;
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 7%;
+    margin-right: auto;
+    border-radius: 6px;
+    z-index: -2;
+    box-shadow: 10px 10px 10px #888888;
+}
+#ElectronicsFact:hover {
+	opacity: 1.0;
+}
+    #ElectronicsFact p {
+        color: black;
+        font-family: Helvetica;
+        font-weight: lighter;
+        font-size: 160%;
+        margin-top: 0.5%;
+        margin-left: 23%;
+        position: absolute;
+        text-align: center;
+        z-index: -1;
+    }
+
+#Mission {
+    opacity: 0.8;
+    width: 82%;
+    height: 70%;
+    background-color: white;
+    position: absolute;
+    margin-top: 6%;
+    margin-left: 7%;
+    border-radius: 6px;
+    z-index: -4;
+    box-shadow: 10px 10px 10px #888888;
+}
+	#Mission p {
+        color: black;
+        font-family: Helvetica;
+        font-weight: lighter;
+        font-size: 160%;
+        margin-top: 16%;
+        margin-left: 9%;
+        position: absolute;
+        text-align: center;
+        z-index: -1;
+	}
