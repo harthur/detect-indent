@@ -26,7 +26,7 @@ module.exports = function(lines) {
     }
 
     var indent = Math.abs(width - last);
-    if (indent) {
+    if (indent > 1) {
       spaces[indent] = (spaces[indent] || 0) + 1;
     }
     last = width;
@@ -39,13 +39,13 @@ module.exports = function(lines) {
 
   // mark as tabs if they start more than half the lines
   if (tabs >= total / 2) {
-    console.log("tabs");
     return "tabs";
   }
 
   // find most frequent none-zero width difference between adjacent lines
   var freqIndent = null, max = 0;
   for (var width in spaces) {
+    width = parseInt(width, 10);
     var tally = spaces[width];
     if (tally > max) {
       max = tally;

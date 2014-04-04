@@ -42,8 +42,9 @@ module.exports = function(lines) {
   // remove outliers and get the minimum width
   var minWidth = Infinity;
   for (var width in spaces) {
+    width = parseInt(width, 10);
     var count = spaces[width];
-    if (notOutlier(total, count) && width < minWidth) {
+    if (notOutlier(total, count) && (width < minWidth)) {
       minWidth = width;
     }
   }
@@ -55,7 +56,6 @@ module.exports = function(lines) {
 
 function notOutlier(total, count) {
   return (total < 4)
-      || (total < 10 && count > 1)
-      || (total < 40 && count > 2)
-      || (total >= 40 && count > (total / 20));
+      || (total < 50 && count > 1)
+      || (total >= 50 && count > (total / 50));
 }
