@@ -1,0 +1,8 @@
+/*    this css file used for border coloring   */
+.myclass
+{	
+	border-top:solid 1px red;
+	border-bottom:solid 1px red;
+	border-left:solid 1px red;
+	border-right:solid 1px red;
+}

@@ -1,0 +1,12 @@
+.selector_one, .selector_one .selector_two, .selector_one .selector_three, .selector_three {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  position: relative;
+  float: left;
+  display: block;
+}
+.selector_one .selector_two, .selector_three .selector_two, .selector_one .selector_three, .selector_three .selector_three {
+  background-color: red;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.5);
+}
