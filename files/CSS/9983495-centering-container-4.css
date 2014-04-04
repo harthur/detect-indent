@@ -1,0 +1,10 @@
+.centering-container {
+    @include abs-pos(-300px, auto, auto, -300px);
+    width: 800px;
+    height: 800px;
+    
+    canvas, video, img {
+        display:block;
+        margin:auto;
+    } 
+}

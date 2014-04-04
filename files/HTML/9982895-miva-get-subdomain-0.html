@@ -1,0 +1,5 @@
+<mvt:item name="toolkit" param="mvassign|subdomain|substring( s.http_host, '0', (indexof( '.', s.http_host, '1') - 1) )"/>
+<!-- !@! &mvte:global:subdomain; -->
+
+<mvt:assign name="subdomain" value="substring( s.http_host, '0', (indexof( '.', s.http_host, '1') - 1) )"/>
+<!-- !@! &mvte:global:subdomain; -->
