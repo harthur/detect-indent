@@ -1,0 +1,89 @@
+/**
+ * nice background slideshow with CSS3 transitions
+ * adapted from: http://tympanus.net/codrops/2012/01/02/fullscreen-background-image-slideshow-with-css3/
+ */
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.cb-slideshow, .cb-slideshow:after {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+
+.cb-slideshow:after {
+    content: '';
+    /*background: transparent url('http://pehaa.com/wp-content/uploads/2009/03/pattern1.png') repeat top left;*/
+}
+
+.cb-slideshow li span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    backface-visibility: hidden;
+    animation: imageAnimation 12s linear infinite 0s;
+}
+
+.cb-slideshow li:nth-child(1) span {
+    background-image: url(http://themeserver.microsoft.com/themeserver//Bing/Desktop/en-US/Images/BaliBoats1920x120011-8-2012%209_23_02%20AM.jpg);
+}
+
+.cb-slideshow li:nth-child(2) span {
+    background-image: url(http://themeserver.microsoft.com/themeserver//Bing/Desktop/en-US/Images/DewDragon1920x120011-8-2012%209_23_11%20AM.jpg);
+    animation-delay: 3s;
+}
+
+.cb-slideshow li:nth-child(3) span {
+    background-image: url(http://themeserver.microsoft.com/themeserver//Bing/Desktop/en-US/Images/CapeMay1920x120011-1-2012%2012_19_11%20PM.jpg);
+    animation-delay: 6s;
+}
+
+.cb-slideshow li:nth-child(4) span {
+    background-image: url(http://themeserver.microsoft.com/themeserver//Bing/Desktop/en-US/Images/HolkhamBay1920x120011-1-2012%2012_19_34%20PM.jpg);
+    animation-delay: 9s;
+}
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+    5% {
+        opacity: 1;
+	    transform: translateX(0px);
+	}
+    25% {
+	    opacity: 1;
+	    transform: translateX(0px);    
+    }
+    30% {
+        opacity: 1;
+        transform: translateX(-100%);
+    }
+    31% {
+        opacity: 0;
+    }
+}
+/* Show at least something wsupported */
+.no-cssanimations .cb-slideshow li span {
+    opacity: 1;
+}

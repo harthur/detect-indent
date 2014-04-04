@@ -1,0 +1,10 @@
+.TestModule {
+  color: red;
+}
+
+.TestModule__head {
+  margin: 5px;
+}
+.TestModule__head .TestModule__title {
+  padding: 10px;
+}
