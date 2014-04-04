@@ -1,0 +1,69 @@
+<!-- 
+///////////////////////////////////////////////////////////////////////
+// These examples apply to Fuel UX v3.0
+// If you're looking for Fuel UX v2.* please checkout the examples here
+//     - https://gist.github.com/vernak2539/7589085
+/////////////////////////////////////////////////////////////////////////
+-->
+<!-- standard markup of datepicker -->
+<div class="datepicker dropdown" id="myDatepicker">
+    <div class="input-append">
+        <div class="dropdown-menu"></div>
+        <input type="text" class="span2" value="" data-toggle="dropdown">
+        <button type="button" class="btn" data-toggle="dropdown"><i class="icon-calendar"></i></button>
+    </div>
+</div>
+
+<!-- JS for datepicker -->
+<script type="text/javascript">
+	// the following code would be after jquery is initialized and when you're initially setting up the datepicker
+	
+	//---------------------------------------------------
+	// Default Configuration
+	//---------------------------------------------------
+	$('#myDatepicker').datepicker({
+		date: new Date(),
+		dropdownWidth: 170,
+		restrictDateSelection: true
+	});
+
+	// initialization with null value
+	// $('#myDatepicker').datepicker('getDate') will return null until date is set (useful for form validation)
+	$('#myDatepicker').datepicker({
+		date: null
+	});
+
+	// allowing past date selection
+	$('#myDatepicker').datepicker({
+		restrictDateSelection: false
+	});
+
+	// custom dropdown menu width (value must be an integer)
+	$('#myDatepicker').datepicker({
+		dropdownWidth: 200
+	});
+
+
+	//---------------------------------------------------
+	// Moment JS integration
+	//		Additional Features:
+	//			1. Input parsing (on blur date will be parsed)
+	//			2. Moment JS Culture Support
+	//				- Check out http://momentjs.com/docs/#/i18n/changing-language/ for language options
+	//			3. Moment JS Format Support
+	//				- We only support the Moment JS format codes of "L" or "l"
+	//				- http://momentjs.com/docs/#/customization/long-date-formats/
+	//		Requirements:
+	//			1. Moment JS with Langs. In either of the following forms:
+	//				- window.moment
+	//				- RequireJS modules defined as "moment"
+	//			2. Moment JS with Langs found here --> http://momentjs.com/downloads/moment-with-langs.js
+	//---------------------------------------------------
+	$('#myDatepicker').datepicker({
+		momentConfig: {
+			culture: 'en', // change to specific culture
+			formatCode: 'L' // change for specific format
+		}
+	});
+	
+</script>

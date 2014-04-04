@@ -1,0 +1,70 @@
+img{
+  border:0px;
+}
+
+.img-slid ul li{
+  background: none repeat scroll 0 0 #000000;
+  float: left;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  width: 400px;
+}
+.img-slid ul,.img-slid ul li{
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+}
+.img-slid{
+  width:400px;
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+}
+.img-slid ul{
+  position: absolute;
+  height: 200px;
+  
+}
+.img-slid .pre,.img-slid .next{
+  color: #fff;
+  font-size:24px;
+  text-align: center;
+  height:200px;
+  position:absolute;
+  background: #000;
+  opacity: 0;
+  width:50px;
+  line-height:200px;
+  cursor: pointer;
+  z-index:99;
+}
+.img-slid .pre:hover,.img-slid .next:hover{
+  opacity: 0.2;
+}
+.img-slid .pre{
+  left:0;
+}
+.img-slid .next{
+  left:350px;
+}
+.img-slid .btmBtn{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  text-align:center;
+}
+.img-slid span{
+  cursor: pointer;
+  color:#f00;
+  font-size:2em;
+  opacity:0.5;
+  padding-left:5px;
+  padding-right:5px;
+}
+.img-slid span:hover{
+  opacity:1;
+}
+.img-slid .on{
+  opacity:1;
+}

@@ -1,0 +1,107 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>topojson import into force directed network</title>
+  <meta charset="utf-8" />
+</head>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<style>
+
+</style>
+<body onload="forceDirected();">
+
+<div id="vizcontainer">
+<svg style="width:500px;height:500px;border:1px lightgray solid;" />
+</div>
+<div id="controls">
+</div>
+
+  <footer>
+<script>
+
+  function forceDirected() {
+    d3.json("world.json", createForceLayout)
+
+    function createForceLayout(world) {
+        var nodes = topojson.feature(world, world.objects.countries).features;
+        var neighbors = topojson.neighbors(world.objects.countries.geometries);
+        var edges = [];
+        console.log(nodes);
+      var nodeHash = {};
+      for (x in nodes) {
+        nodeHash[x] = nodes[x];
+      }
+      for (x in neighbors) {
+        for (y in neighbors[x]) {
+            var newEdge = {source: nodeHash[x], target: nodeHash[neighbors[x][y]]};
+            edges.push(newEdge);
+        }
+      }
+      
+      force = d3.layout.force()
+      .charge(-20)
+      .gravity(.05)
+      .linkDistance(10)
+      .size([500,500]).nodes(nodes)
+      .links(edges).on("tick", forceTick);
+
+      d3.select("svg").selectAll("line.link").data(edges).enter()
+      .append("line")
+      .attr("class", "link")
+      .style("stroke", "black")
+      .style("opacity", .5)
+      .style("stroke-width", 1);
+      
+      var nodeEnter = d3.select("svg").selectAll("g.node").data(nodes).enter()
+      .append("g")
+      .attr("class", "node")
+      .call(force.drag())
+      .on("click", fixNode);
+      
+      function fixNode(d) {
+        d3.select(this).select("circle").style("stroke-width", 4);
+        d.fixed = true;
+      }
+      
+      nodeEnter.append("circle")
+      .attr("r", 1)
+      .style("fill", "lightgray")
+      .style("stroke", "black")
+      .style("stroke-width", "1px");
+
+      nodeEnter.append("text")
+      .style("text-anchor", "middle")
+      .attr("y", 15)
+//      The topojson data file I'm using doesn't have names...
+//      .text(function(d) {return d.properites.name})
+
+      force.start();
+
+      function forceTick() {
+      d3.selectAll("line.link")
+      .attr("x1", function (d) {return d.source.x})
+      .attr("x2", function (d) {return d.target.x})
+      .attr("y1", function (d) {return d.source.y})
+      .attr("y2", function (d) {return d.target.y});
+      
+      d3.selectAll("g.node")
+      .attr("transform", function (d) {return "translate("+d.x+","+d.y+")"})
+      }
+
+
+    function sizeByDegree() {
+      force.stop();
+      d3.selectAll("circle")
+      .attr("r", function(d) {return d.weight * .2})
+      }
+   d3.select("#controls").append("button").on("click", sizeByDegree).html("Degree Size");
+   
+   
+    }
+  }
+
+
+</script>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Choropleth</title>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+
+<div id='map'></div>
+<style>
+.map-legend .swatch {
+  width:20px;
+  height:20px;
+  float:left;
+  margin-right:10px;
+  }
+.leaflet-popup-close-button {
+  display: none;
+  }
+.leaflet-popup-content-wrapper {
+  pointer-events: none;
+  }
+</style>
+
+<!--  <script src='http://www.mapbox.com/mapbox.js/assets/data/us-states.js'></script> -->
+<script src='http://bl.ocks.org/aaizemberg/raw/9982456/rect.js'></script>
+
+<script>
+  var mapdataviz = L.mapbox.map('map', 'examples.map-9ijuk24y')
+    .setView([-38, -65], 5);
+
+  var popup = new L.Popup({ autoPan: false });
+
+// statesData comes from the 'us-states.js' script included above
+// rect es un GeoJSON que viene de 'rect.js'
+
+//var statesLayer = L.geoJson(statesData,  {
+  var statesLayer = L.geoJson(rect,  {
+      style: getStyle,
+      onEachFeature: onEachFeature
+  }).addTo(mapdataviz);
+
+  function getStyle(feature) {
+      return {
+          weight: 2,
+          opacity: 0.1,
+          color: 'black',
+          fillOpacity: 0.7,
+          fillColor: getColor(feature.properties.size)
+      };
+  }
+  
+  function getColor(d) {
+      return d <= 143 ? '#ffffb2' :
+          d <= 379  ? '#FECC5C' :
+          d <= 866 ? '#FD8D3C' :
+          d <= 2664  ? '#F03B20' :
+          d <= 3204  ? '#BD0026' :
+          '#0000ff';
+  }
+
+  function onEachFeature(feature, layer) {
+      layer.on({
+          mousemove: mousemove,
+          mouseout: mouseout,
+          click: zoomToFeature
+      });
+  }
+
+  var closeTooltip;
+
+  function mousemove(e) {
+      var layer = e.target;
+
+      popup.setLatLng(e.latlng);
+      popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' + layer.feature.properties.size);
+
+      if (!popup._map) popup.openOn(mapdataviz);
+      window.clearTimeout(closeTooltip);
+
+      // highlight feature
+      layer.setStyle({
+          weight: 3,
+          opacity: 0.3,
+          fillOpacity: 0.9
+      });
+
+      if (!L.Browser.ie && !L.Browser.opera) {
+          layer.bringToFront();
+      }
+  }
+
+  function mouseout(e) {
+      statesLayer.resetStyle(e.target);
+      closeTooltip = window.setTimeout(function() {
+          mapdataviz.closePopup();
+      }, 100);
+  }
+
+  function zoomToFeature(e) {
+      mapdataviz.fitBounds(e.target.getBounds());
+  }
+
+  mapdataviz.legendControl.addLegend(getLegendHTML());
+
+  function getLegendHTML() {
+    var grades = [0, 143, 379, 866, 2664, 3204],
+    labels = [],
+    from, to;
+
+    for (var i = 0; i < grades.length-1; i++) {
+      from = grades[i];
+      to = grades[i + 1];
+
+      labels.push(
+        '<li><span class="swatch" style="background:' 
+        + getColor(from + 1) + '"></span> ' +
+        from + (to ? '&ndash;' + to : '+')) + '</li>';
+    }
+
+    return '<span>referencias</span>' + labels.join('');
+  }
+</script>
+
+</body>
+</html>
