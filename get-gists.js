@@ -3,10 +3,10 @@ var https = require("https"),
     path = require("path");
 
 var dir = "files";
-var langs = ['HTML', 'JavaScript', 'CSS'];
-var interval = 1000 * 60 * 15; // 15 minutes
+var langs = ['HTML', 'CSS'];
+var interval = 1000 * 60 * 45; // 45 minutes
 
-//setInterval(function() {
+setInterval(function() {
   console.log("fetching recent gists");
 
   getRecentGists(function(gists) {
@@ -26,12 +26,12 @@ var interval = 1000 * 60 * 15; // 15 minutes
       }
     }
   });
-//}, interval);
+}, interval);
 
 function saveGistFiles(gist) {
   for (var name in gist.files) {
     var file = gist.files[name];
-    if (langs.indexOf(file.language) == -1 || name == "0_reuse_code.js") {
+    if (langs.indexOf(file.language) == -1) {
       continue;
     }
     var filename = path.join(dir, file.language, gist.id + "-" + file.filename);
