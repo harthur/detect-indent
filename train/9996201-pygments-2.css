@@ -1,0 +1,35 @@
+// SCSS file!
+// Keep in mind, that you have to modify sass code!
+
+.data {
+  @include zeros;
+  border: 1px solid #100804;
+  @include border-rad(10);
+  margin-bottom: 1em;
+  width: 99%;
+  background: darken(#261e16, 5%);
+  font-size: 80%;
+  color: #f70;
+  font-family: 'Bitstream Vera Sans Mono','Courier',monospace;
+  font-size: 14px;
+  overflow: auto;
+}
+
+.data pre {
+  @include zeros;
+}
+
+.data .highlight { padding: .5em 0; }
+.data .highlight div { padding-left: 1em; white-space: nowrap; }
+.data .highlight div:hover { background: #16261e; }
+
+.data .line_numbers {
+  background: darken(#261e16, 7.5%);
+  padding: .5em .5em .5em 1em;
+  border-right: 1px solid #132;
+  text-align: right;
+}
+.data .line_numbers span {
+  color: #cba;
+  cursor: default;
+}

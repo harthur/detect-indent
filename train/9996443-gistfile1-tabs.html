@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>WKHTMLTOPDF Font Test</title>
+		<style>
+			@font-face {
+			  font-family: 'Roboto';
+			  font-style: normal;
+			  font-weight: 100;
+			  src: local('Roboto Thin'), local('Roboto-Thin'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/vzIUHo9z-oJ4WgkpPOtg1_esZW2xOQ-xsNqO47m55DA.woff) format('woff');
+			}
+			@font-face {
+			  font-family: 'Roboto';
+			  font-style: normal;
+			  font-weight: 300;
+			  src: local('Roboto Light'), local('Roboto-Light'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/Hgo13k-tfSpn0qi1SFdUfT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+			}
+			@font-face {
+			  font-family: 'Roboto';
+			  font-style: normal;
+			  font-weight: 400;
+			  src: local('Roboto Regular'), local('Roboto-Regular'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/2UX7WLTfW3W8TclTUvlFyQ.woff) format('woff');
+			}
+			@font-face {
+			  font-family: 'Roboto';
+			  font-style: normal;
+			  font-weight: 700;
+			  src: local('Roboto Bold'), local('Roboto-Bold'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/d-6IYplOFocCacKzxwXSOD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+			}
+			@font-face {
+			  font-family: 'Roboto';
+			  font-style: normal;
+			  font-weight: 900;
+			  src: local('Roboto Black'), local('Roboto-Black'), url(http://themes.googleusercontent.com/static/fonts/roboto/v10/mnpfi9pxYH-Go5UiibESIj8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+			}
+
+			html {
+				font-family: 'Roboto', arial;
+				background-color:white;
+				color:black;
+				font-weight:400;
+				font-size:8pt;
+				-webkit-print-color-adjust:exact;
+			}
+		</style>
+	</head>
+	<body style="font-size:14pt;">
+		<div style="font-family:Arial;">
+			<div>Arial (notice the kerning issues which is why I decided to experiment with Roboto)</div>
+			<div style="font-size:.8em; font-weight:300">Arial light, .8em</div>
+			<div style="font-size:.8em;">Arial, .8em</div>
+			<div style="font-size:.9em;">Arial, .9em</div>
+			<div style="font-size:1em;">Arial, 1em</div>
+			<div style="font-size:1em; font-weight:700;">Arial bold, 1em</div>
+			<div style="font-size:1em; font-weight:900;">Arial bolder, 1em</div>
+		</div>
+		<br/>
+		<span style="font-family:Arial;">Arial vs Roboto</span> | <span style="font-family:'Roboto';">Arial vs Roboto</span>
+		<br/>
+		<br/>
+		<div style="font-family:'Roboto';">
+			<div>Roboto</div>
+			<div style="font-size:.8em; font-weight:300">Roboto light, .8em</div>
+			<div style="font-size:.8em;">Roboto, .8em</div>
+			<div style="font-size:.9em;">Roboto, .9em</div>
+			<div style="font-size:1em;">Roboto, 1em</div>
+			<div style="font-size:1em; font-weight:700;">Roboto bold, 1em</div>
+			<div style="font-size:1em; font-weight:900;">Roboto bolder, 1em</div>
+		</div>
+		<br/>See PDF at: http://goo.gl/qoc47N (version updated)
+	</body>
+</html>
