@@ -2,9 +2,9 @@ var fs = require("fs"),
     path = require("path");
 
 var algos = {
-  // gcd: require("./algos/gcd"),
-  // compare_lines: require("./algos/comparelines"),
-  // min: require("./algos/min"),
+  gcd: require("./algos/gcd"),
+  compare_lines: require("./algos/comparelines"),
+  min: require("./algos/min"),
   neuralnet: require("./algos/neuralnet")
 };
 
@@ -26,7 +26,7 @@ function getAlgoResults() {
     var counts = {};
     var lang = langs[i];
     var files = fs.readdirSync(path.join(dir, lang));
-    //files = files.slice(0, 5);
+    //files = files.slice(0, 50);
 
     for (var j in files) {
       var file = path.join(dir, lang, files[j]);
