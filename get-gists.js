@@ -2,11 +2,11 @@ var https = require("https"),
     fs = require("fs");
     path = require("path");
 
-var dir = "files";
-var langs = ['HTML', 'CSS'];
+var dir = "train";
+var langs = ['HTML', 'CSS', 'JavaScript'];
 var interval = 1000 * 60 * 45; // 45 minutes
 
-setInterval(function() {
+//setInterval(function() {
   console.log("fetching recent gists");
 
   getRecentGists(function(gists) {
@@ -26,7 +26,7 @@ setInterval(function() {
       }
     }
   });
-}, interval);
+//}, interval);
 
 function saveGistFiles(gist) {
   for (var name in gist.files) {
@@ -34,7 +34,7 @@ function saveGistFiles(gist) {
     if (langs.indexOf(file.language) == -1) {
       continue;
     }
-    var filename = path.join(dir, file.language, gist.id + "-" + file.filename);
+    var filename = path.join(dir, gist.id + "-" + file.filename);
     console.log(">saving ", filename);
     saveFile(filename, file.content);
   }
