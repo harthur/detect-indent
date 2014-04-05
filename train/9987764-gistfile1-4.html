@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload = draw; // Execute draw function when DOM is ready
+        function draw() {
+            // Assign our canvas element to a variable
+            var canvas = document.getElementById("canvas1");
+            // Create the HTML5 context object to enable draw methods
+            var ctx = canvas.getContext("2d");
+            //fillStyle (r, g, b, alpha);
+            ctx.fillStyle = "rgba(0,200,0,1)";
+            //fillRect (X, Y, width, height);
+            ctx.fillRect (36, 10, 22, 22);
+            
+            ctx.fillStyle = "rgba(0,0,200,1)";
+            ctx.fillRect (36, 50, 22, 22);
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+<canvas id="canvas1" width="400" heigh="300"></canvas>
+</body>
+</html>

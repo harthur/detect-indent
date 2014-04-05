@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Amplitude Live</title>
+		<script type="text/javascript" src="js/amplitude.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/single-song-styles.css"/>
+	</head>
+
+	<div id="player">
+		<div id="player-top">
+			<div id="amplitude-play-pause" class="amplitude-paused"></div>
+		</div>
+	</div>
+	<div id="single-song-container">
+		<audio id="single-song" preload="none">
+			<source src="http://LIVESTREAMURL/;” type="audio/mp3" id="single-song"/>
+			Your browser does not support the audio tag.
+		</audio>
+	</div>
+	<script type="text/javascript">
+		amplitude_config = {
+			'amplitude_live': true,
+			'amplitude_live_source': 'http://LIVESTREAMURL/;’,
+		}
+	</script>
+</html>

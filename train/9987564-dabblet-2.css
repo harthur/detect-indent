@@ -1,0 +1,43 @@
+/**
+ * The first commented line is your dabblet’s title
+ */
+@keyframes right {
+  to {
+    left: 400px;
+    text-indent: -400px;
+  }
+}
+.wrapper {
+  width: 500px;
+  height: 400px;
+}
+.wrapper .mask {
+  position: absolute;
+  width: 40px;
+  height: 200px;
+  margin-left: 0px;
+  overflow: hidden;
+  z-index: 2;
+  -o-animation: right 2s linear infinite;
+  -moz-animation: right 2s linear infinite;
+  -webkit-animation: right 2s linear infinite;
+  animation: right 4s linear infinite;
+}
+.wrapper .mask #Layer_1, #Layer_2 {
+  width: 400px;
+  height: 200px;
+}
+
+.wrapper, .wrapper #Layer_2 {
+background: red;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 12.5em;
+  margin: auto;
+}
+
+body {
+background: #333;
+}

@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <style type="text/css">
+    table table {
+      width: 600px !important;
+    }
+    table div + div { /* main content */
+      width: 65%;
+      float: left;
+    }
+    table div + div + div { /* sidebar */
+      width: 33%;
+      float: right;
+    }
+    table div + div + div + div { /* footer */
+      width: 100%;
+      float: none;
+      clear: both;
+    }
+
+    @media (max-width: 630px) {
+      table table {
+        width: 96% !important;
+      }
+      table div {
+        float: none !important;
+        width: 100% !important;
+      }
+    }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0; background: #ccc;">
+    <table cellpadding=0 cellspacing=0 style="width: 100%;"><tr><td style="padding: 12px 2%;">
+      <table cellpadding=0 cellspacing=0 style="margin: 0 auto; background: #fff; width: 96%;"><tr><td style="padding: 12px 2%;">
+      <div>
+        <h1>Header</h1>
+      </div>
+      <div>
+        <h2 style="margin-top: 0;">Main Content</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec gravida sem dictum, iaculis magna ornare, dignissim elit.</p>
+        <p>Cras justo mauris, elementum id purus ut, elementum volutpat nibh. Proin quis augue sed dui vulputate bibendum. Sed congue arcu eget porta pellentesque. Integer pretium tristique augue, lacinia ultricies libero malesuada id.</p>
+        <p>Cras quis est convallis, malesuada neque nec, pellentesque lorem. Maecenas tempor dui id lorem imperdiet, vitae sollicitudin lacus tincidunt. Aliquam nec arcu eu dui tempus dignissim. Mauris consequat metus nec erat elementum egestas. In vitae lacus pretium justo suscipit imperdiet.</p>
+      </div>
+      <div>
+        <h2 style="margin-top: 0;">Sidebar</h2>
+        <p>Donec tincidunt tincidunt nunc, eget pulvinar risus sodales eu.</p>
+      </div>
+      <div style="border-top: solid 1px #ccc;">
+        <p>Footer</p>
+      </div>
+      </td></tr></table>
+    </td></tr></table>
+  </body>
+</html>

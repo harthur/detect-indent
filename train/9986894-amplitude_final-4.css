@@ -1,0 +1,81 @@
+/* Player Styles */
+#player{
+    width: 334px;
+    margin: auto;
+    box-shadow: 1px 5px 5px #888888;
+}
+#player-top{
+    padding: 10px;
+    height: 55px;
+    background-color: white;
+}
+#slash{
+    color: #3b3b3b;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 1px 1px #ffffff;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    margin-top: 20px;
+}
+#track-info-container{
+    float: left;
+    font-size: 10px;
+    width: 170px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+#time-info-container{
+    float: left;
+    margin-top: 15px;
+    font-size: 10px;
+    line-height: 19px;
+}
+
+/* Amplitude Element Styles */
+#amplitude-play-pause{
+    width: 58px;
+    height: 59px;
+    cursor: pointer;
+    float: left;
+}
+.amplitude-paused{
+    background-image: url('../images/yellow-play.png');
+    background-repeat: no-repeat;
+}
+.amplitude-playing{
+    background-image: url('../images/yellow-pause.png');
+    background-repeat: no-repeat;
+}
+#amplitude-now-playing-artist{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 14px;
+}
+#amplitude-now-playing-title{
+    color: #3b3b3b;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 1px 1px #ffffff;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    margin-top: 20px;
+}
+#amplitude-current-time{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+#amplitude-audio-duration{
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+#amplitude-song-slider{
+    display: inline-block;
+    height: 10px;
+    border-radius: 5px;
+    width: 220px;
+    background-color: rgba(237,237,237,.8);
+    margin-left: 10px;
+    margin-top: 5px;
+}
+#amplitude-track-progress{
+    background-color: #fad52c;
+    height: 10px;
+    border-radius: 5px;
+    width: 0px;
+}

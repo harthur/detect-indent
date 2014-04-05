@@ -1,0 +1,40 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(http://fonts.googleapis.com/css?family=Quicksand:400,300);
+
+body {
+  font-family: 'Quicksand', 'Open Sans', 'Helvetica Neue', 'Helvetica', sans-serif;
+  font-weight: 100;
+  color: white;
+  background-color: black;
+}
+
+h1 {
+  font-weight: 100;
+}
+
+h1, p {
+  text-align: center;
+}
+
+div p {
+  color: yellow;
+  font-size: 6rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+footer a {
+  text-decoration: none;
+  color: yellow;
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: blue;
+}
