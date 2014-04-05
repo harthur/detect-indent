@@ -1,0 +1,21 @@
+<link rel="import" href="../paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../paper-toggle-button/paper-toggle-button.html">
+<style>
+  #paper_radio_group {
+    position: absolute;
+    left: 90px;
+    top: 120px;
+  }
+  #paper_toggle_button {
+    position: absolute;
+    left: 120px;
+    top: 240px;
+  }
+</style>
+<paper-radio-group selectedproperty="checked" activateevent="paper-radio-button-activate" selected="Large" valueattr="label" selectedclass="core-selected" selectedattribute="active" selectedindex="2" id="paper_radio_group">
+  <paper-radio-button label="Small" id="paper_radio_button"></paper-radio-button>
+  <paper-radio-button label="Medium" id="paper_radio_button1"></paper-radio-button>
+  <paper-radio-button checked="true" label="Large" id="paper_radio_button2" class="core-selected" active></paper-radio-button>
+</paper-radio-group>
+<paper-toggle-button id="paper_toggle_button" touch-action="pan-y"></paper-toggle-button>

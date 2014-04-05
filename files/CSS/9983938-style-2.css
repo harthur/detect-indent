@@ -1,0 +1,14 @@
+li {
+  position:absolute;
+}
+
+img {
+    -webkit-animation: test infinite 1s;
+}
+
+@-webkit-keyframes test {
+  0% {z-index:0}
+  34% {z-index:-1}
+
+}
+

@@ -1,0 +1,133 @@
+.color-function-test {
+  /* single value - light , base, dark */
+  color-function: #636060, #585555, #413f3f;
+  /* map value - light , base, dark */
+  color-function: #636060, #585555, #413f3f;
+  /* predefined-variations - they should all be the same color */
+  color-function: #585555, #585555, #585555;
+}
+
+.color-function-tests-with-expected-errors {
+  /* single value that isn't a color - expecting a error message */
+  color-function: 2 /* @error { the base color value is a number not a color } */, 2 /* @error { the base color value is a number not a color } */, 2 /* @error { the base color value is a number not a color } */;
+  /* predefined variation that isn't a color - expecting 2 colors and a error message */
+  color-function: #d0345f, #c82754, "broken" /* @error { this isn't a color value } */;
+}
+
+body {
+  color: #585555;
+  font: 16px/1.45em Arial;
+}
+
+.color-function-test {
+  margin: 0;
+  padding: 0;
+}
+.color-function-test li {
+  display: block;
+  height: 100px;
+  float: left;
+  margin: 15px 10px;
+  padding: 0;
+  position: relative;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  width: 100px;
+}
+.color-function-test li:hover {
+  -moz-transform: scale(1.27);
+  -ms-transform: scale(1.27);
+  -webkit-transform: scale(1.27);
+  transform: scale(1.27);
+  box-shadow: 0 0 0 5px #fff;
+}
+.color-function-test li:after {
+  font-size: 12px;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  text-align: center;
+  top: -2em;
+  width: 100px;
+}
+
+.color-function-test .color0 {
+  background: #585555;
+}
+.color-function-test .color0:after {
+  content: "base color: 0";
+}
+.color-function-test .color1 {
+  background: #4c4949;
+}
+.color-function-test .color1:after {
+  content: "variation1";
+}
+.color-function-test .color-1 {
+  background: #5e5b5b;
+}
+.color-function-test .color-1:after {
+  content: "variation: -1";
+}
+.color-function-test .color2 {
+  background: #413f3f;
+}
+.color-function-test .color2:after {
+  content: "variation2";
+}
+.color-function-test .color-2 {
+  background: #636060;
+}
+.color-function-test .color-2:after {
+  content: "variation: -2";
+}
+.color-function-test .color3 {
+  background: #363434;
+}
+.color-function-test .color3:after {
+  content: "variation3";
+}
+.color-function-test .color-3 {
+  background: #6a6767;
+}
+.color-function-test .color-3:after {
+  content: "variation: -3";
+}
+.color-function-test .color4 {
+  background: #2a2929;
+}
+.color-function-test .color4:after {
+  content: "variation4";
+}
+.color-function-test .color-4 {
+  background: #6f6c6c;
+}
+.color-function-test .color-4:after {
+  content: "variation: -4";
+}
+.color-function-test .color5 {
+  background: #1f1e1e;
+}
+.color-function-test .color5:after {
+  content: "variation5";
+}
+.color-function-test .color-5 {
+  background: #757373;
+}
+.color-function-test .color-5:after {
+  content: "variation: -5";
+}
+.color-function-test .color6 {
+  background: #131313;
+}
+.color-function-test .color6:after {
+  content: "variation6";
+}
+.color-function-test .color-6 {
+  background: #7c7878;
+}
+.color-function-test .color-6:after {
+  content: "variation: -6";
+}
