@@ -2,9 +2,10 @@ var fs = require("fs"),
     path = require("path");
 
 var algos = {
-  gcd: require("./algos/gcd"),
-  compare_lines: require("./algos/comparelines"),
-  min: require("./algos/min")
+  // gcd: require("./algos/gcd"),
+  // compare_lines: require("./algos/comparelines"),
+  // min: require("./algos/min"),
+  neuralnet: require("./algos/neuralnet")
 };
 
 var dir = "files";

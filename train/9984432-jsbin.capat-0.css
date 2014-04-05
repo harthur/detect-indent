@@ -1,0 +1,5 @@
+.box { border: 1px solid blue}
+.Claim { position: relative; border: 1px solid black; background-color: gray; color: white; width:150px; margin: 10px; padding:5px;};
+.Claim.rollup { background-image:url('/_mnpstatic/images/rollup.png'); }
+.Claim.sentpaid { background-image:url('https://photos-3.dropbox.com/t/0/AAAortjUeVUGW4iYJPqTDX2HcZUCeiMRBzL2EK-EKfRnSw/12/63880/png/2048x1536/3/1396656000/0/2/claim-statusicon-sent.png/s0SijiDrGBQstFA9alrQ-m5ocLriyburAPKUQH9mN0I'), url('https://photos-5.dropbox.com/t/0/AAD3ViyyG2CdRJtFVq4rg354QRGo_8bfb_3bm9c4xRsa-g/12/63880/png/2048x1536/3/1396656000/0/2/453-dollars-xsm-offset.png/B2gmBmBEe7tRM19C5mWptqz6d6yYZbR9fV7PybkO4cs'); background-repeat: no-repeat; background-position: 5px;}
+.Claim.status { padding-left: 60px;}

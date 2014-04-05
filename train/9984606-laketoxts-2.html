@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+/*.x.axis path {
+  display: none;
+}*/
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+
+
+</style>
+<body>
+<h1>Average Monthly Temperature of Lake Toxoway, NC</h1>
+<script src="http://d3js.org/d3.v3.js"></script>
+<script>
+
+var f = function(property){
+ return function(obj){ return obj[property]; };
+}
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+     .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+d3.tsv("toxdata2.txt", function(error, data) {
+  data.forEach(function(d){
+    d.dateformat=d3.time.format('%d-%b-%Y').parse(d.DateFormat);
+    d.month=+d.dateformat.getMonth()+1;
+    d.temp=+d.MeanTemp/10*9/5+32;
+    d.precip=+d.Precip/10*0.0393701;
+  })
+
+
+/*  var mintemp = d3.min(data, f('temp'))
+  var maxtemp = d3.max(data, f('temp'))
+  var mindate = d3.min(data, f('dateformat'))
+  var maxdate = d3.max(data, f('dateformat'))*/
+
+  var x = d3.time.scale()
+   .domain(d3.extent(data, f('dateformat')))
+   .range([0, width])
+
+  var y = d3.time.scale()
+   .domain(d3.extent(data, f('temp')))
+   .range([height, 0])
+  
+  var formatAsNumber = d3.format(".1");
+
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom");
+
+
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .tickFormat(formatAsNumber);
+
+
+  svg.selectAll('circle')
+    .data(data).enter()
+    .append('circle')
+      .attr('r',2)
+      .attr('cx', function(d){ return x(d.dateformat); })
+      .attr('cy', function(d){ return y(d.temp);}) 
+      .attr('opacity',.2)
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("Year")
+     
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Temperature (F)");
+  line=d3.svg.line()
+    .x(function(d){return x(d.dateformat);})
+    .y(function(d){return y(d.temp);})
+
+  svg.append('path')
+    .datum(data)
+    .attr('d',line)
+    .style('fill','None')
+    .style('stroke','blue')
+
+debugger;
+});
+
+</script>
