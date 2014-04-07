@@ -15,7 +15,7 @@ module.exports = function(lines) {
   var net = new brain.NeuralNetwork().fromJSON(NET);
   var result = net.run(spaces);
 
-  console.log("result:", result);
+  //console.log("result:", result);
 
   var maxProb = 0, bestIndent = null;
   for (var width in result) {
@@ -28,7 +28,7 @@ module.exports = function(lines) {
   if (bestIndent == 0) {
     return null;
   }
-  console.log("best:", bestIndent);
+  //console.log("best:", bestIndent);
   return bestIndent;
 }
 
@@ -46,8 +46,8 @@ function trainNetwork() {
     var counts = getWidthCounts(lines);
     var output = {};
     output[indent] = 1;
-    console.log("input", counts);
-    console.log("output", output);
+    // console.log("input", counts);
+    // console.log("output", output);
     data.push({input: counts, output: output});
   }
 

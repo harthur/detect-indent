@@ -51,7 +51,7 @@ function detectInFile(file) {
   var contents = fs.readFileSync(file, { encoding: "utf-8"});
   var lines = contents.split("\n");
 
-  console.log("\ndetecting in ", file);
+  console.log("detecting in ", file);
 
   var expected = getIndent(file);
   var results = {};
@@ -59,7 +59,9 @@ function detectInFile(file) {
     var algo = algos[name];
     var actual = algo(lines);
     results[name] = (actual == expected);
-    console.log("actual:", actual, "expected:", expected);
+    if (actual != expected) {
+      console.log(" algo:", name.slice(0,3) , "actual:", actual, "expected:", expected);
+    }
   }
   return results;
 }
