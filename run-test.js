@@ -17,7 +17,21 @@ printAlgoResults();
 
 function printAlgoResults() {
   var results = getAlgoResults();
-  console.log(results);
+
+  var totals = {};
+  for (var lang in results) {
+    console.log(lang + ":");
+    for (var algo in results[lang]) {
+      var count = results[lang][algo];
+      console.log(" ", algo.slice(0, 3) + ":", count);
+      totals[algo] = (totals[algo] || 0) + count;
+    }
+  }
+  console.log("overall:");
+  for (var algo in algos) {
+    totals[algo] /= langs.length;
+    console.log(" ", algo.slice(0, 3) + ":", totals[algo]);
+  }
 }
 
 function getAlgoResults() {
@@ -26,7 +40,6 @@ function getAlgoResults() {
     var counts = {};
     var lang = langs[i];
     var files = fs.readdirSync(path.join(dir, lang));
-    //files = files.slice(0, 50);
 
     for (var j in files) {
       var file = path.join(dir, lang, files[j]);
