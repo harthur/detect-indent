@@ -1,0 +1,9 @@
+.a {
+  background: red;
+  background: linear-gradient(red, orange);
+  zoom: 1;
+}
+ 
+.b {
+  background: green;
+}

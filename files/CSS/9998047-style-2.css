@@ -1,0 +1,38 @@
+/*
+ * None of the CSS in this example is necessary for the script to work properly. The only required CSS is the one shipped with Bootstrap.
+ */
+
+/* This example's styling */
+
+.breakpoint-alias {
+  display: inline-block;
+  padding: 6px 12px;
+  color: #fff;
+  background-color: #238cce;
+  width: 50px;
+  text-align: center;
+}
+h4 {
+   margin-bottom: 0!important;
+}
+
+@media (max-width: 767px) {
+  .breakpoint-alias:before {
+    content: 'XS ';
+  }
+}
+@media (min-width: 768px) and (max-width: 983px) {
+  .breakpoint-alias:before {
+    content: 'SM ';
+  }
+}
+@media (min-width: 984px) and (max-width: 1199px) {
+  .breakpoint-alias:before {
+    content: 'MD ';
+  }
+}
+@media (min-width: 1200px) {
+  .breakpoint-alias:before {
+    content: 'LG ';
+  }
+}

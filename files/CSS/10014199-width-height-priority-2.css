@@ -1,0 +1,11 @@
+.set-width {
+  min-width: 50px; /* overrides */
+  max-width: 25px; /* which in turn, overrides */
+  width: 30px; 
+}
+
+.set-height {
+  min-height: 50px; /* overrides */
+  max-height: 25px; /* which in turn, overrides */
+  height: 30px; 
+}

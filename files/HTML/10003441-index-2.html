@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+
+  <head>
+    <title>AngularJS Plunker</title>
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.13/angular.js" data-semver="1.2.13"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <svg width="500" height="500">
+      <circle ng-repeat="circle in circles track by $index"
+              trans-attr="{
+                cx: circle.x,
+                cy: circle.y,
+                r: circle.r,
+                fill: circle.color
+              }" />
+    </svg>
+
+    <button type="button" ng-click="transition()">Transition Now!</button>
+  </body>
+
+</html>

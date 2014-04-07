@@ -1,0 +1,16 @@
+.link {
+  fill: none;
+  stroke: white;
+  stroke-width: 1.0px;
+}
+
+.node circle {
+  fill: tomato;
+  stroke: #fff;
+  stroke-width: 2.5px;
+}
+
+text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}

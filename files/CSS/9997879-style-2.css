@@ -1,0 +1,83 @@
+body{
+  background: black;
+  text-align: center;
+}
+.contenedor{
+  background-image: url(http://subtlepatterns.com/patterns/tree_bark.png);
+  width: 200px;
+  height: 180px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.contenedor:hover .sonrisa{
+  width: 30px;
+  height: 15px;
+  background: white;
+  margin: 35px auto 0  auto;
+  border-radius: 30px 30px 5px 5px;
+
+}
+.contenedor:hover .triangulo{
+  margin: 50px auto 0 auto;
+
+}
+.triangulo{
+  border-right: transparent solid 50px;
+  border-bottom: gray solid 35px;
+  border-left: transparent solid 50px;
+  width: 0;
+  margin: 30px auto 0 auto;  
+  transition: 1s all ease;
+}
+.circulo{
+  width: 70px;
+  height: 60px;
+  background: gray;
+  border-radius: 60px;
+  margin: -23px auto 0 auto;
+  overflow: hidden;
+}
+
+.sonrisa{
+  width: 30px;
+  height: 10px;
+  background: white;
+  margin: 40px auto 0  auto;
+  border-radius: 0px 0px 30px 30px;
+  transition: .5s all ease;
+}
+.cuerpo{
+  width: 120px;
+  height: 100px;
+  background: gray;
+  margin: -2px auto 0 auto;
+  border-radius: 30px 30px 0px 0px;  
+}
+.corbata{
+  border-top: 10px OrangeRed solid;
+  border-left: 10px transparent solid;
+  border-bottom: 50px OrangeRed solid;
+  border-right: 10px transparent solid;
+  width: 0;
+  margin: -90px auto 0 auto;
+  
+}
+.corbata2{
+  border-top: 10px OrangeRed solid;
+  border-left: 10px transparent solid;
+  border-right: 10px transparent solid;
+  width: 0;
+  margin: 0 auto 0 auto;
+  
+}
+
+p {
+  color: gray;
+  font-family: courier;
+}
+span{
+  color: OrangeRed;
+  font-size: 22px;
+}

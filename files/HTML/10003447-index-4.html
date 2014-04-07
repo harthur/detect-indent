@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script>
+        var chart = function() {
+            var width = 512,
+                height = 512,
+                n = 1;
+
+            var gridSize = Math.pow(2, n);
+            var gridCells = [];
+            var range = d3.range(0, gridSize);
+
+            for (var rowIndex = 0; rowIndex < gridSize; rowIndex++) {
+                for (var colIndex = 0; colIndex < gridSize; colIndex++) {
+                    gridCells.push({ row: rowIndex, col: colIndex });
+                }
+            }
+
+            var gridScale = d3.scale.ordinal()
+                .domain(range)
+                .rangeRoundBands([0, width], 0);
+
+            var tileScale = d3.scale.ordinal()
+                .domain(range)
+                .rangeRoundBands([0, width], 0.1, 0.05);
+
+            var svg = d3.select("body").append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            var renderGrid = function() {
+                svg.selectAll('rect.cell')
+                    .data(gridCells)
+                    .enter()
+                    .append('rect').classed('cell', true)
+                    .attr({
+                        x: function(d) {
+                            return gridScale.range()[d.col];
+                        },
+                        y: function(d) {
+                            return gridScale.range()[d.row];
+                        },
+                        width: gridScale.rangeBand(),
+                        height: gridScale.rangeBand(),
+                    })
+                    .style("stroke", "orange")
+                    .style("fill", "white")
+                    .style("fill-opacity", "0.5")
+                    .on("click", function(data) {
+                        clearTile(data);
+                    });
+            };
+
+            var tiles = [
+                {
+                    x: 0,
+                    y: 0,
+                    rotation: 180
+                }
+            ];
+
+            var rotationMap = [[180, 270], [90, 0]];
+
+            var renderPoly = function(tileData) {
+                var poly = svg.selectAll('polygon.tile')
+                    .data(tileData);
+                poly.enter()
+                    .append("polygon").classed('tile', true)
+                    .attr({
+                        points: function(d, i) {
+                            var points = [
+                                [tileScale.range()[d.x], tileScale.range()[d.y]],
+                                [tileScale.range()[d.x + 1] + tileScale.rangeBand(), tileScale.range()[d.y]],
+                                [tileScale.range()[d.x + 1] + tileScale.rangeBand(), tileScale.range()[d.y] + tileScale.rangeBand()],
+                                [tileScale.range()[d.x] + tileScale.rangeBand(), tileScale.range()[d.y] + tileScale.rangeBand()],
+                                [tileScale.range()[d.x] + tileScale.rangeBand(), tileScale.range()[d.y + 1] + tileScale.rangeBand()],
+                                [tileScale.range()[d.x], tileScale.range()[d.y + 1] + tileScale.rangeBand()]
+                            ];
+                            return points.join(" ");
+                        },
+                    })
+                    .style("pointer-events", "none")
+                    .style("stroke", "black")
+                    .style("fill", "#7E7166");
+
+
+                poly.transition()
+                    .attr({
+                        transform: function(d, i) {
+                            return 'rotate(' + d.rotation + ', ' + gridScale.range()[d.x + 1] + ', ' + gridScale.range()[d.y + 1] + ')';
+                        }
+                    });
+            };
+
+            var clearTile = function(data) {
+                console.log("Clear tile", data);
+                var tile = tiles[0];
+                tile.rotation = rotationMap[data.row][data.col];
+                renderPoly(tiles);
+            };
+            renderGrid();
+            renderPoly(tiles);
+        };
+        chart();
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+
+@-moz-document domain("wikipedia.org") {
+    html, body {
+        font-family: serif;
+    }
+    
+    #content p {
+        font-size: 0.9em;
+    }
+}

@@ -1,0 +1,96 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css'>
+    <link rel='stylesheet' href='http://www.liedman.net/leaflet-routing-machine/dist/leaflet-routing-machine.css'>
+    
+    <script src='http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js' type='text/javascript'></script>
+    <script src='https://rawgithub.com/leaflet-extras/leaflet-providers/gh-pages/leaflet-providers.js' type='text/javascript'></script>
+    <script src='http://harrywood.co.uk/maps/examples/leaflet/leaflet-plugins/layer/vector/KML.js' type='text/javascript'></script>
+    <script src='http://www.liedman.net/leaflet-routing-machine/dist/leaflet-routing-machine.min.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 1450px;
+      height: 800px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart6d58205347ac' class = 'rChart leaflet'></div>    
+    <script>
+  var spec = {
+ "dom": "chart6d58205347ac",
+"width":           1450,
+"height":            800,
+"urlTemplate": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+"layerOpts": {
+ "attribution": "Map data<a href=\"http://openstreetmap.org\">OpenStreetMap</a>\n         contributors, Imagery<a href=\"http://mapbox.com\">MapBox</a>" 
+},
+"center": [       40.73846,      -73.99413 ],
+"zoom":             16,
+"provider": "Stamen.TonerLite",
+"id": "chart6d58205347ac" 
+}
+
+  var map = L.map(spec.dom, spec.mapOpts)
+  
+    map.setView(spec.center, spec.zoom);
+
+    if (spec.provider){
+      L.tileLayer.provider(spec.provider).addTo(map)    
+    } else {
+		  L.tileLayer(spec.urlTemplate, spec.layerOpts).addTo(map)
+    }
+     
+    
+    
+    
+    
+    
+    if (spec.circle2){
+      for (var c in spec.circle2){
+        var circle = L.circle(c.center, c.radius, c.opts)
+         .addTo(map);
+      }
+    }
+    
+    
+    
+    
+    
+   
+   
+   
+</script>
+    
+    
+     <script>
+     var mywaypoints = [
+     [ 40.741, -73.993 ],
+    [ 40.736, -73.993 ] 
+    ]
+     L.Routing.control({
+      waypoints: [
+        L.latLng.apply(null, mywaypoints[0]),
+        L.latLng.apply(null, mywaypoints[1])
+      ]
+     }).addTo(map);
+     </script>    
+  </body>
+  <script>
+  function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+  }
+  console.log(getURLParameter("viewer_pane"))
+  if (getURLParameter("viewer_pane") === "1"){
+    document.write("<style>.rChart { width: 100% }</style>");
+  }
+  </script>
+</html>

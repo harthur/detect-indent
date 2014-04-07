@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="http://js.cx/test/libs.js"></script>
+  <script src="test.js"></script>
+</head>
+<body>
+
+  <script>
+
+    function camelize(str) {
+      var arr = str.split('-');
+    
+      for(var i=1; i<arr.length; i++) {
+        // преобразовать: первый символ с большой буквы
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+      }
+    
+      return arr.join('');
+    }
+
+  </script>
+
+</body>
+</html>

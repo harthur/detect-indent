@@ -1,0 +1,37 @@
+/**
+ * Google Now Animation
+ */
+ body{
+    perspective-origin-y: 40%;
+	perspective: 1000px;
+	color: #666666;
+    background-color: #D6D5CB;
+ }
+[class=container] {
+	text-align: center;
+	font-size: 0;
+	transform-style: preserve-3d;
+	width:980px;
+	margin:100px auto;
+}
+
+[class=column] {
+	margin: 0 15px;
+	white-space: normal;
+	vertical-align: top;
+	display: inline-block;
+	transform: translatez(0);
+	box-shadow: 0 2px 3px rgba(0,0,0,.05);
+	width:200px;
+	height:100px;
+	background:#333;
+}
+[class=column]:hover{
+	transition: opacity .5s ease-out .1s,transform .6s cubic-bezier(.67,.23,.64,.925) .35s;
+}
+@media only screen and (max-width: 480px) {
+
+}
+@media only screen and (max-width: 360px) {
+ 
+}

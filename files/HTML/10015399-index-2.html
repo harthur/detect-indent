@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+#circle circle {
+  fill: none;
+  pointer-events: all;
+}
+
+.group path {
+  fill-opacity: .5;
+}
+
+path.chord {
+  fill-opacity: .67;
+}
+
+#circle:hover path.fade {
+  display: none;
+}
+
+.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+
+#chartContainer {
+  float: right;
+  margin: 20px;
+}
+
+</style>
+<body>
+
+<div id="chartContainer">
+</div>
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://dimplejs.org/dist/dimple.v1.1.5.min.js"></script>
+<script>
+
+var width = 920,
+    height = 920,
+    outerRadius = Math.min(width, height) / 2 - 150,
+    innerRadius = outerRadius - 24;
+    
+
+var formatPercent = d3.format(".1%");
+
+var fill = d3.scale.category20c();
+
+var arc = d3.svg.arc()
+    .innerRadius(innerRadius)
+    .outerRadius(outerRadius);
+
+var layout = d3.layout.chord()
+    .padding(.04)
+    .sortSubgroups(d3.descending)
+    .sortChords(d3.ascending);
+
+var path = d3.svg.chord()
+    .radius(innerRadius);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("id", "circle")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+svg.append("circle")
+    .attr("r", outerRadius);
+
+//Bar chart vars
+
+var barWidth = 420,
+    barHeight = 20;
+
+var x = d3.scale.linear()
+    .range([0, barWidth]);
+
+var chart = d3.select(".chart")
+    .attr("width", barWidth);
+
+
+d3.csv("ne_stations.csv", function(error, imports) {
+  var matrix = [],
+      data = imports;
+  for(var i=0;i<data.length;i++){
+    var obj = data[i];
+    var row = [];
+    var name = [];
+    for(var key in obj) {
+      name.push(key)
+      row.push(parseFloat(obj[key]));
+    }
+    row.shift();
+    matrix.push(row);
+  };
+  console.log('here', matrix);
+  console.log(name);
+
+    // Compute the chord layout.
+    layout.matrix(matrix);
+
+    // Add a group per neighborhood.
+    var group = svg.selectAll(".group")
+        .data(layout.groups)
+      .enter().append("g")
+        .attr("class", "group")
+        .on("mouseover", mouseover);
+
+    // Add the group arc.
+    var groupPath = group.append("path")
+        .attr("id", function(d, i) { return "group" + i; })
+        .attr("d", arc)
+        .style("fill", function(d) { return fill(d.index); })
+        .style("stroke", function(d) { return fill(d.index); })
+
+    group.append("text")
+      .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+      .attr("dy", ".35em")
+      .attr("transform", function(d) {
+        return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+            + "translate(" + (innerRadius + 26) + ")"
+            + (d.angle > Math.PI ? "rotate(180)" : "");
+      })
+      .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+      .text(function(d) { console.log(d.index); return name[d.index]; });
+
+
+    // Add the chords.
+    var chord = svg.selectAll(".chord")
+        .data(layout.chords)
+      .enter().append("path")
+        .attr("class", "chord")
+        .style("stroke", function(d) { return d3.rgb(fill(d.source.index)).darker(); })
+        .style("fill", function(d) { return fill(d.source.index); })
+        .attr("d", path);
+
+
+    function mouseover(d, i) {
+      var cur_name = name[i];
+      console.log(name[i]);
+      chord.classed("fade", function(p) {
+        return p.source.index != i
+            && p.target.index != i;
+      });
+
+      clearBox('chartContainer');
+
+      var ssvg = dimple.newSvg("#chartContainer", 400, 200);
+      d3.csv("ne_stations_sub.csv", function(error, subs) {
+          var sub = subs,
+              data = [];
+
+          for(var i=0;i<sub.length;i++){
+            var obj = sub[i];
+            var row = [];
+            var name = [];
+            for(var key in obj) {
+              if(key == cur_name) {
+                data.push({"Rider Type":obj[""], "Number of Riders":parseFloat(obj[key])});
+              }
+            }
+          };
+
+          var myChart = new dimple.chart(ssvg, data);
+          myChart.setBounds(75, 30, 350, 150)
+          myChart.addMeasureAxis("x", "Number of Riders");
+          var y = myChart.addCategoryAxis("y", "Rider Type");
+          myChart.addSeries(null, dimple.plot.bar);
+          myChart.draw();
+
+          console.log(data);
+        });
+      }
+
+      var ssvg = dimple.newSvg("#chartContainer", 400, 200);
+      d3.csv("ne_stations_sub.csv", function(error, subs) {
+          var sub = subs,
+              data = [];
+
+          for(var i=0;i<sub.length;i++){
+            var obj = sub[i];
+            var row = [];
+            var name = [];
+            for(var key in obj) {
+              if(key == 'Total') {
+                data.push({"Rider Type":obj[""], "Number of Riders":parseFloat(obj[key])});
+              }
+            }
+          };
+
+          var myChart = new dimple.chart(ssvg, data);
+          myChart.setBounds(75, 30, 350, 150)
+          myChart.addMeasureAxis("x", "Number of Riders");
+          var y = myChart.addCategoryAxis("y", "Rider Type");
+          myChart.addSeries(null, dimple.plot.bar);
+          myChart.draw();
+
+          console.log(data);
+        });
+
+      function clearBox(elementID) {
+          document.getElementById(elementID).innerHTML = "";
+        }
+      
+    });
+
+</script>

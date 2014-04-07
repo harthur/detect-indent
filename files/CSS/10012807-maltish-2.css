@@ -1,0 +1,11 @@
+#themecover_willsong {
+  background-position: center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  height: 102%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 102%;
+  z-index: -100;
+}

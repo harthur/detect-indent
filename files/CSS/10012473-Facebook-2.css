@@ -1,0 +1,263 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+*{
+ font-family:'Raleway' !important; 
+}
+
+._4-u2 {
+-webkit-border-radius: 0px;
+border-color: #D3D3D3;
+
+}
+  
+._5vb_.hasLeftCol #leftCol {
+padding-top: 12px;
+padding-left: 0px;
+width: 170px;
+margin-top: 12px;
+background-color: #FFF;
+border-color: #E5E6E9 #DFE0E4 #D0D1D5;
+border: 1px solid #D3D3D3;
+}
+      
+#pagelet_navigation {
+padding: 0px 8px;
+}
+
+#pagelet_welcome_box {
+padding: 0px 0px 12px;
+margin: 0px 8px;
+border-bottom: 1px solid #E5E5E5;
+}
+
+.hasSmurfbar #blueBarHolder #blueBar {
+background:none;
+background-color: #4C66A4;
+border: 0;
+-webkit-box-shadow: none;
+position: relative;
+}
+        
+.__wu .roundedBox .smurfbarTopBorder {
+background: #FFF;
+-webkit-border-radius: 0px 0px 0 0;
+height: 3px;
+}
+              
+              .__wu .roundedBox .smurfbarBottomBorder {
+background: #FFF;
+-webkit-border-radius: 0 0 0px 0px;
+height: 3px;
+}
+              
+._5q5b .fbNubFlyoutTitlebar {
+/* background: #4B67A8 url(/rsrc.php/v2/yt/r/D47CF9k_yA8.png) repeat-x 0 -29px; */
+border: 1px solid #2E4588;
+position: relative;
+   -webkit-border-radius: 0 0 0px 0px;             
+}
+
+
+body._5vb_ #globalContainer {
+width: 1170px;
+}
+
+html._5vb_._5vb_.hasLeftCol .hasRightCol div#contentArea {
+width: 690px !important;
+}
+
+._5vsj .UFIAddComment .ReactLegacyMentionsInput .uiTypeahead, ._5vsj .UFIAddComment .ReactLegacyMentionsInput .uiTypeahead .wrap {
+border-color: #D3D6DB;
+border: none;
+}
+
+._5vsj .UFIAddComment .ReactLegacyMentionsInput .UFIAddCommentInput {
+min-height: 32px;
+padding-top: 8px;
+border: none;
+}
+
+._5vsj._5vsj._5vsj {
+background-color: #E9E9E9;
+-webkit-border-radius: 0 0 3px 3px;
+color: #141823;
+margin: 8px -12px -12px;
+overflow: visible;
+width: auto;
+}
+
+._5vsj .UFIShareRow, ._5vsj .UFIFirstCommentComponent {
+border-top: 1px solid #ABABAC;
+}
+._5vsj .UFIRow {
+background-color: #E9E9E9;
+margin: 0 12px;
+padding: 4px 0;
+position: relative;
+}
+
+html ._5vb_._5vb_.hasLeftCol .hasRightCol div#contentArea {
+width: 690px;
+}
+
+._4jy1._4jy3, ._4jy1._4jy3._42fr:active, ._4jy1._4jy3._42fr._42fs {
+background-position: 0 -335px;
+background: #4E69A2;
+padding: 1px 17px;
+border: none;
+text-shadow: none;
+border-radius: 0px;
+}
+
+
+._5t_y ._1dsp {
+background-color: #E9E9E9;
+border-top-color: #E9EAED;
+}
+
+._5t_y ._55d0, ._5t_y ._1dsp {
+-webkit-border-radius: 0px;
+border-radius: 0px;
+}
+  
+ ._5vb_ ._5pr2 ._55ln:focus, ._5vb_ ._5pr2 ._55ln:hover, ._5vb_ ._5pr2 li.selected ._55ln {
+background-color: #FAFAFA;
+border-color: #D5D6D9;
+-webkit-box-shadow: 1px 0 0 #EAEBED inset;
+transition: all 0.2s;
+}
+          
+          
+._5vb_ ._5pr2.fbChatSidebar, .fbCalendar ._5pr2.fbChatSidebar, ._1t4w ._5pr2.fbChatSidebar, .timelineLayout ._5pr2.fbChatSidebar {
+  background-color: #E9E9E9;
+  -webkit-box-shadow: 1px 0 0 #F0F0F2 inset;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+                
+                
+._5vsj .UFIRow.UFIFirstComponent {
+  border-top: 1px solid #E1E2E3;
+  margin: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding: 6px 12px;
+}
+                      
+._5vsj .UFIRow {
+  background-color: #E9E9E9;
+  margin: 0 12px;
+  padding: 6px 0;
+  position: relative;
+}
+                          
+._5vsj .UFIRow.UFIUnseenItem:after {
+  background-color: #5890FF;
+  bottom: 0;
+  content: '';
+  left: -13px;
+  position: absolute;
+  top: 0;
+  width: 5px;
+}
+                                  
+._5vsj._5vsj._5vsj {
+  background-color: #E9E9E9;
+  -webkit-border-radius: 0 0 3px 3px;
+  color: #141823;
+  margin: 8px -12px -12px;
+  overflow: visible;
+  width: auto;
+  border-radius: 0px;
+}
+
+
+div._5plv .navHeader, div._5plv .navHeader a {
+  color: #898F9C;
+  font-size: 11px;
+  -webkit-font-smoothing: antialiased;
+  border-bottom: 1px solid #D3D3D3;
+  font-weight: normal;
+}
+
+._3479._5plv .item .uiSideNavCount, ._3479._5plv .item:hover .uiSideNavCount {
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-box-shadow: none;
+  background-color: #E9E9E9;
+}
+
+.uiButtonGroup span .uiButtonOverlay, .uiButtonGroup span .uiButtonOverlay:hover {
+  background-image: url(/rsrc.php/v2/y3/r/LhA0oqLF7fj.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: right -148px;
+  background-color: rgba(0, 0, 0, 0);
+  background-color: #E4E1EB;
+  border-radius: 0px !important;
+}
+
+
+._4lh .fbTimelineCapsule .fbTimelineUnit[data-side="l"] .topBorder {
+background-image: url(/rsrc.php/v2/ya/r/Ub-S7EfvQDs.png);
+background-repeat: no-repeat;
+background-size: auto;
+background-position: 0 -9px;
+height: 4px;
+top: -1px;
+width: 512px;
+background: none;
+border-top: 1px solid #D9D9D9;
+}
+
+._4lh .fbTimelineCapsule .fbTimelineUnit[data-side="l"] .bottomBorder {
+background-image: url(/rsrc.php/v2/ya/r/Ub-S7EfvQDs.png);
+background-repeat: no-repeat;
+background-size: auto;
+background-position: 0 -4px;
+bottom: -1px;
+height: 4px;
+width: 512px;
+background: none;
+border-bottom: 1px solid #D9D9D9;
+}
+
+
+html ._4lh .fbTimelineScrubber li a {
+border-left-color: #D3D7DC;
+color: #89919C;
+transition: all 0.2s;
+}
+
+._5p3y .uiSideNav .item {
+color: #141823;
+color: #37404E;
+}
+
+._2a2q {
+overflow: hidden;
+position: relative;
+margin: 0px auto;
+}
+
+._5mly {
+position: relative;
+z-index: 10;
+margin: 0px auto;
+}
+
+._5v3q ._4-eo {
+-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+position: relative;
+margin: 0px auto;
+}
+  
+._5vb_ #blueBarHolder #blueBar #pageHead {
+width: 1170px;
+}
+
+.contentAfter .uiScrollableAreaTrack:hover, .contentBefore .uiScrollableAreaTrack:hover, .contentAfter.uiScrollableAreaTrackOver .uiScrollableAreaTrack, .contentBefore.uiScrollableAreaTrackOver .uiScrollableAreaTrack, .uiScrollableAreaDragging .uiScrollableAreaTrack {
+  background-color: rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 10px;
+  width: 10px;
+  border-radius: 0px;
+}

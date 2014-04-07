@@ -1,0 +1,83 @@
+html {
+  background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/NGC_2818_by_the_Hubble_Space_Telescope.jpg/1280px-NGC_2818_by_the_Hubble_Space_Telescope.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family:  'Lato', sans-serif;
+  color: #FFF;
+  font-weight: 400;
+}
+
+div {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  font-size: 100px;
+  margin-top: -66px;
+  text-align: center;
+  perspective: 600px;
+}
+div span {
+  width: 16.6666666%;
+  display: inline-block;
+  float: left;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  opacity: 0
+}
+div span:nth-child(1) {
+  animation-name: animC;
+}
+div span:nth-child(2) {
+  color: #555;
+  animation-name: animO1;
+}
+div span:nth-child(3) {
+  color: #555;
+  animation-name: animS1;
+}
+div span:nth-child(4) {
+  color: #555;
+  animation-name: animM;
+}
+div span:nth-child(5) {
+  color: #555;
+  animation-name: animO2;
+}
+div span:nth-child(6) {
+  animation-name: animS2;
+}
+
+@keyframes animC {
+  0% , 90% { transform: translate3D( 240%,0,-400px ) rotateY( 85deg ); opacity: 0 }
+  10%, 80% { transform: translate3D( 220%,0,0 ) rotateY( 40deg ); opacity: 1; }
+  32%, 58% { transform: translate3D( 0,0,0 ) rotateY( 0deg ); }
+}
+@keyframes animO1 {
+  15%, 75% { transform: translate3D( 120%,0, 0 ) rotateY( 90deg ); color: #999; opacity: 0 }
+  32%, 58% { transform: translate3D( 0,0,0 ) rotateY( 0deg ); color: #FFF; opacity: 1 }
+}
+@keyframes animS1 {
+  20%, 70% { transform: translate3D( 30%,0, 0 ) rotateY( 90deg ); color: #999; opacity: 0 }
+  32%, 58% { transform: translate3D( 0,0,0 ) rotateY( 0deg ); color: #FFF; opacity: 1 }
+}
+@keyframes animM {
+  20%, 70% { transform: translate3D( -30%,0, 0 ) rotateY( -90deg ); color: #999; opacity: 0 }
+  32%, 58% { transform: translate3D( 0,0,0 ) rotateY( 0deg ); color: #FFF; opacity: 1 }
+}
+@keyframes animO2 {
+  15%, 75% { transform: translate3D( -120%,0, 0 ) rotateY( -90deg ); color: #999; opacity: 0 }
+  32%, 58% { transform: translate3D( 0,0,0 ) rotateY( 0deg ); color: #FFF; opacity: 1 }
+}
+@keyframes animS2 {
+  0% , 90% { transform: translate3D( -240%,0,-400px ) rotateY( -85deg ); opacity: 0 }
+  10%, 80% { transform: translate3D( -220%,0,0 ) rotateY( -40deg ); opacity: 1; }
+  32%, 58% { transform: translate3D( 0,0,0 ) rotateY( 0deg ); }
+}

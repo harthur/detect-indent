@@ -1,0 +1,6 @@
+sass {
+  capitalize: "Hello";
+  uncapitalize: "hELLO";
+  ucwords: "Let The Sun Shine";
+  camelize: "- hello......w-orl--d. --foo-bar-";
+}

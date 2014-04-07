@@ -1,0 +1,61 @@
+
+
+li {
+  list-style-type: none;
+}
+
+.page {
+  padding: 50px;
+  background: LemonChiffon;
+}
+
+.header {
+  width: 100%;
+  height:200px;
+  background: indianRed;
+}
+
+/* NAV
+*****************************/
+.nav {
+  width: 95%;
+  padding: 2.5%;    
+  background: gold;
+}
+
+.nav:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.nav .box {
+  width: 22%;
+  margin: 0 1.5%;
+  height: 50px;
+  background: hotpink;
+  float: left;  
+}
+
+/* CONTENT ++
+******************************/
+.content {
+  width: 70%;
+  height: 400px;
+  background: sandyBrown;
+  float: left;
+}
+
+.sidebar {
+  width:30%;
+  height: 400px;
+  background: YellowGreen  ;
+  float: right;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background: CornflowerBlue;
+  clear: both;
+}

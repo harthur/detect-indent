@@ -1,0 +1,9 @@
+.a {
+  background: red;
+  /* dropped linear gradient based on IE CSS support (like what autoprefixer does) */
+  zoom: 1;
+}
+ 
+.b {
+  background: green;
+}

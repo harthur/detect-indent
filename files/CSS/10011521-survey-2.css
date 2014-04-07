@@ -1,0 +1,11 @@
+.axis text {
+  font: 11px sans-serif;
+  font-weight: bold;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}

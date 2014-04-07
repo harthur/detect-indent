@@ -1,0 +1,63 @@
+<meta charset="UTF-8">
+
+  <title>Circular rotating music player with menu on back with html5 javascript and css3</title>
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+  <div id="container">
+	<label class="to-back-label" for="to-back"><i class="fa fa-bars fa-lg">Flip</i></label>
+	<input type="checkbox" id="to-back"><!-- playlist toggle -->
+	<canvas id="progress" width="320" height="320"></canvas><!-- progress bar -->
+	<div id="player">
+		<audio id="audio" controls>
+			<source src="https://ia700204.us.archive.org/2/items/OriginalMemphisFive-HowComeYouDoMeLikeYouDo/Original_Memphis_Five-How_Come_You_Do_Me_Like_You_Do-1924.ogg" type="audio/mpeg" codecs="mp3"></source>		
+		</audio>
+		<img src="https://farm4.staticflickr.com/3180/3093562978_7f69c4663d.jpg"><!-- album cover -->
+		<label class="to-lyrics-label" for="to-lyrics"><i class="fa fa-caret-down fa-lg"></i></label>
+		<input type="checkbox" id="to-lyrics"><!-- lyrics toggle -->
+		<div class="cover">
+			<div class="controls">
+				<button id="backward" title="Backward"><i class="fa fa-retweet fa-lg"></i></button>
+				<button id="backward" title="Backward"><i class="fa fa-backward fa-2x"></i></button>
+				<button id="play-pause" title="Play" onclick="togglePlayPause()"><i class="fa fa-play fa-3x"></i></button>
+				<button id="forward" title="Forward"><i class="fa fa-forward fa-2x"></i></button>
+				<button id="backward" title="Backward"><i class="fa fa-random fa-lg"></i></button>
+				<input id="volume" name="volume" min="0" max="1" step="0.1" type="range" onchange="setVolume()" />
+			</div><!-- #controls -->
+			<div class="info">
+				<p class="song"><a href="http://stanwilliams.net/circular-rotating-music-player-with-menu-on-back-with-html5-and-css3/" target="_blank">Back to article</a></p>
+				<p class="author"><a href="https://archive.org/details/OriginalMemphisFive-HowComeYouDoMeLikeYouDo" target="_blank">Original Memphis Five</a></p>
+			</div><!-- #info -->
+			<div class="lyrics">
+				<p>Early Jazz group The Original Memphis Five perform "How Come You Do Me Like You Do?" in this recording from October 1st, 1924. From the original 78rpm disk.
+
+This audio is part of the collection: 78 RPMs & Cylinder Recordings
+It also belongs to collection: Music, Arts & Culture</p>
+			</div><!-- #lyrics -->
+			<p class="scroll">scroll down</p>
+  </div><!-- #cover -->
+</div><!-- #player -->
+<div id="flip-back">
+  <ul class="playlist">
+			<h3>Links</h3>
+			<li><a href="https://twitter.com/StansSongs/" target="_blank"> Twitter</a></li>
+			<li><a href="http://facebook.com/stanwilliamsmusic/" target="_blank"> Facebook</a></li>
+			<li><a href="http://stanwilliams.net/circular-rotating-music-player-with-menu-on-back-with-html5-javascript-and-css3/" target="_blank" style="color:#26C5CB;"><i class="fa fa-play" style="margin-right:4px;"></i> www.Stanwilliams.net</a></li>
+			<li><a href="http://stanwilliamsmusic.com/" target="_blank""> Official Music Website</a></li>
+			<li><a href="https://plus.google.com/u/0/+StanWilliams/" target="_blank"> Google +</a></li>
+			<li><a href="http://stans-songs.com" target="_blank"> Stans-Songs.com</a></li>
+			<li><a href="http://myspace.com/stanwilliams/" target="_blank"> Stan on Myspace</a></li>
+			<li><a href="https://soundcloud.com/stanwmusic" target="_blank">Sound Cloud</a></li>
+			<li><a href="http://www.pinterest.com/stanssongs/" target="_blank"> Pinterest</a></li>
+			<li><a href="http://www.last.fm/music/Stan+Williams/Peace+Pipe" target="_blank"> Last FM</a></li>
+		</ul>
+	</div><!-- #flip-back -->
+</div><!-- #container -->
+
+<div class="credits">
+  <p>MUSIC — "<a href="https://archive.org/details/OriginalMemphisFive-HowComeYouDoMeLikeYouDo" target="_blank">Original Memphis Five &nbsp;October 1, 1924 &nbsp;&nbsp;78 RPM Disk</a><br>Music source: &nbsp<a href="https://archive.org/details/OriginalMemphisFive-HowComeYouDoMeLikeYouDo" target="_blank">Archive.org</a>&nbsp; Photo credit:  <a href="https://www.flickr.com/photos/muohio_digital_collections/3093562978/sizes/m/" target="_blank">Flickr Commons</a></p>
+</div><!-- #credits -->

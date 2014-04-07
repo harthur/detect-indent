@@ -1,0 +1,5 @@
+a[accesskey]:after, button[accesskey]:after, input[accesskey]:after, 
+label[accesskey]:after, legend[accesskey]:after, textarea[accesskey]:after { 
+    margin-left: 0.3em;
+    content: "[" attr(accesskey) "]";
+} 

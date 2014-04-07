@@ -1,0 +1,243 @@
+/**
+ * Layout
+ */
+ 
+ 
+ /* iPhone 3 & 4 320px x 480px */
+/* iPhone 5 320px x 568px */
+@media screen and (max-width: 420px) {
+ .holder {
+	width: 320px;
+ }
+}
+
+/* iPad 768px x 1024px */
+@media screen and (max-width: 768px) and (min-width: 421px) {
+ .holder {
+	width: 648px;
+ }
+}
+
+/* 13" Desktop 1280px x 800px */
+@media screen and (max-width: 1280px) and (min-width: 769px) {
+ .holder {
+	width: 972px;
+ }
+}
+
+/* 15" Desktop 1366px x 768px */
+@media screen and (max-width: 1366px) and (min-width: 1281px) {
+ .holder {
+	width: 972px;
+ }
+}
+
+/* 19" Desktop 1440px x 900px */
+@media screen and (max-width: 1440px) and (min-width: 1367px) {
+ .holder {
+	width: 972px;
+ }
+}
+
+/* 20" Desktop 1600px x 900px */
+@media screen and (max-width: 1600px) and (min-width: 1441px) {
+ .holder {
+	width: 1296px;
+ }
+}
+
+/* 22" Desktop 1680px x 1050px */
+@media screen and (max-width: 1680px) and (min-width: 1601px) {
+ .holder {
+	width: 1296px;
+ }
+}
+
+/* 23" Desktop 1920px x 1080px */
+@media screen and (max-width: 1920px) and (min-width: 1681px) {
+ .holder {
+	width: 1620px;
+ }
+}
+
+/* 23+" Desktop 1920px x 1080px 9*/
+@media screen and (min-width: 1921px) {
+ .holder {
+	width: 1620px;
+ }
+}
+ 
+ 
+body {
+	background: #f4f4f4;
+	background-color: #222;
+	min-height: 100%;
+	font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+	margin: 0px;
+}
+
+#banner {
+	display: block;
+	height: 350px;
+	width: 100%;
+/*	position: absolute;
+*/	position: fixed;
+	background-color: #222;
+	background-image: url('https://d262ilb51hltx0.cloudfront.net/fit/c/2000/1600/gradv/29/81/60/darken/25/1*VR5BrDEZ3gCqLs3BOhtbxQ.jpeg');
+	background-position: center;
+	background-size: cover;
+	top: 0px;
+}
+
+#banner::after {
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 50%;
+	background-image: -webkit-linear-gradient(bottom, rgba(34, 34, 34,1) 0%, rgba(222,222,222,0) 100%);
+}
+
+.holder {
+	display: block;
+	position:relative;
+	bottom: 50px;
+	margin: 350px auto;
+/*	margin: 400px auto;
+*/}
+
+.box {
+	display: block;
+	float: left;
+	height: 306px;
+	width: 324px;
+}
+
+.c {
+	display: block;
+	position: relative;
+	float:left;
+/*	margin: 2px;
+*/	margin: 4px;
+	width: 316px;
+	background-size: 100%; 
+	background-position: left center;
+/*	border: 1px solid #b5b5b5;
+*/
+/*	border-radius: 3px;
+*/}
+
+/*.c::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 20%;
+	background-image: -webkit-linear-gradient(bottom,rgba(231,231,226,0) 0,#f4f4f4 100%);
+}
+*/
+.c::after {
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 50%;
+	background-image: -webkit-linear-gradient(bottom, rgba(51,51,50,1) 0%, rgba(231,231,226,0) 100%);
+}
+
+/*.s::after {
+	background-image: -webkit-linear-gradient(bottom, rgba(51,51,50,1) 10%, rgba(231,231,226,0) 100%);
+}*/
+
+.s {
+	height: 94px;
+/*	height: 96px;
+*/}
+
+.m {
+	height: 196px;
+/*	height: 196px;
+*/}
+
+.l {
+	height: 298px;
+/*	height: 296px;
+*/}
+
+.icon {	
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	height: 40px;
+	width: 40px;
+	background-size: cover;
+	border-radius: 100%;
+	margin: 10px 10px 18px 10px;
+	z-index: 1;
+	background-size: 100%; 
+	background-position: left center;
+}
+
+.title {
+	display: block;
+	position: absolute;
+	bottom: 35px;
+	left: 60px;
+	height: 20px;
+	width: 210px;
+	color: #cdcdcd;
+	margin: 10px 0px 5px 0px;
+	z-index: 1;
+	font-size: 12px;
+/*	text-shadow: 0px 0px 1px #000;
+*/}
+
+.text {
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	left: 50px;
+	height: 35px;
+	width: 210px;
+	color: #fff;
+	margin: 10px;
+	z-index: 1;
+	font-size: 12px;
+/*	text-shadow: 0px 0px 1px #000;
+*/}
+
+.date {
+	display: block;
+	position: absolute;
+	right: 0px;
+	height: 20px;
+	width: 30px;
+	color: #cdcdcd;
+	font-size: 12px;
+	bottom: 35px;
+	margin: 5px 5px 0px 0px;
+	z-index: 1;
+}
+
+plus {
+	display: block;
+	position: absolute;
+	right: 0px;
+	height: 18px;
+	width: 18px;
+	text-align: center;
+	border-radius: 100%;
+	border: 1px solid #cdcdcd;
+	color: #cdcdcd;
+	font-size: 20px;
+	bottom: 0px;
+	z-index: 1;
+	margin: 10px 10px 5px 0px;
+}

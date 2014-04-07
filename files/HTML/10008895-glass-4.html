@@ -1,0 +1,48 @@
+<html style="width:100%; height:100%; overflow:hidden">
+<head>
+</head>
+<body style="width:100%; height:100%; overflow:hidden; margin:0; background-color:black">
+<script>
+function server() {
+    WS.log('Welcome to WearScript');
+    WS.say('Welcome to WearScript');
+    WS.sound('SUCCESS')
+
+    WS.gestureCallback('onGesture', function (name) {
+        WS.log('onGesture: ' + name);
+        if(name == "TAP"){
+            var fizzBuzz = fizzBuzzClosure()
+            var id = setInterval(fizzBuzz, 1000)
+            setTimeout(function(){clearInterval(id)}, 100000)
+        }
+    });
+
+}
+
+function fizzBuzzClosure(){
+    var num = 0;
+    return function (){
+        num++;
+        if(num%5==0 && num%3==0){
+            WS.say("Fizz Buzz")
+            WS.log("Fizz Buzz")
+        } else if(num%3==0) {
+            WS.say("Fizz")
+            WS.log("Fizz")
+        } else if(num%5==0) {
+            WS.say("Buzz")
+            WS.log("Buzz")
+        } else {
+            WS.say(num)
+            WS.log(num)
+        }
+    }
+}
+function main() {
+    if (WS.scriptVersion(1)) return;
+    WS.serverConnect('{{WSUrl}}', server);
+}
+window.onload = main;
+</script>
+</body>
+</html>

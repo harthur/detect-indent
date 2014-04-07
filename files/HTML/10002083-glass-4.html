@@ -1,0 +1,61 @@
+<html style="width:100%; height:100%; overflow:hidden">
+<head>
+<!-- You can include external scripts here like so... -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>-->
+</head>
+<body style="width:100%; height:100%; overflow:hidden; margin:0">
+<canvas id="canvas" width="640" height="360" style="display:block"></canvas>
+<script>
+var progNum = 0;
+var tree;
+var programTree = new WS.Cards();
+var programs = [];
+
+function createProgram(name, num) {
+    programs[num] = new WS.Cards();
+    programs[num].add('Program Options', 'tap for options', 
+        'Edit Program \n (say \"stop editing\" to stop)', function () {
+            var input;
+            WS.speechRecognize('Say Something', function speech(data) {
+                input = data;
+                WS.log(data);
+                
+            });
+        }, 
+        'Run Program', function () {
+            WS.say('menu1');
+        });
+    programTree.add(name, 'new program', programs[num]);
+    updateTree();
+}
+
+function updateTree() {
+    WS.cardTree(tree);
+    WS.displayCardTree();
+}
+
+function server() {
+    WS.say('Welcome to speakscript');
+
+    tree = new WS.Cards();
+    tree.add('Voice Program',
+        'Tap to create', function () {WS.say('selected')},function () {WS.say('tapped')},
+        'Create Program', function () {
+            createProgram('prog' + progNum, progNum);
+            progNum++;
+        }, 
+        'Menu1', function () {WS.say('menu1')});
+    tree.add('programs', 'tap to view', (programTree));
+   
+    updateTree();
+}
+function main() {
+    if (WS.scriptVersion(1)) return;
+    //ctx = document.getElementById('canvas').getContext("2d");
+    WS.serverConnect('{{WSUrl}}', server);
+}
+window.onload = main;
+</script>
+</body>
+</html>

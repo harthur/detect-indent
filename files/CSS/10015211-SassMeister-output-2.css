@@ -1,0 +1,39 @@
+.cube {
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+
+.cube-face {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  background: red;
+  opacity: 0.5;
+}
+
+.cube {
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+
+.cube-face {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  background: red;
+  opacity: 0.7;
+}
+
+.cube-face-front {
+  color: blue;
+  transform: translate3d(0, 0, 20px);
+}
+
+.cube {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  perspective: 600px;
+}
