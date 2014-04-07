@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Advanced CSS selectors</title>
+
+		<style>
+			/* Siblings Selector */
+			/* Seleciona todos os elementos após o elemento principal. */
+			/* Works in IE7+ */
+			h2 ~ p {
+				color: #bc2c51;
+			}
+
+
+			/* Adjacent Siblings Selector */
+			/* Seleciona apenas o elemento imediatamente após o seletor. */
+			/* Works in IE7+ */
+			h2 + p {
+				color: #566dbc;
+			}
+
+
+
+			/* Direct Child Selector */
+			/* Seleciona todos os filhos direto do elemento principal, e não os netos. */
+			/* Works in IE7+ */
+			article > h2 {
+				color: #68bc4c;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Advanced CSS selectors</h1>
+			<h2>Title</h2>
+			<p>Adjacent Siblings</p>
+			<p>Siblings</p>
+			<p>Siblings</p>
+			<p>Siblings</p>
+
+		<article>
+			<h2>Direct child</h2>
+			<p>Adjacent Siblings</p>
+			<p>Siblings</p>
+			<p>Siblings</p>
+			<p>Siblings</p>
+
+			<h2>Direct child</h2>
+			<p>Adjacent Siblings</p>
+			<p>Siblings</p>
+			<p>Siblings</p>
+			<p>Siblings</p>
+		</article>
+	</body>
+</html>

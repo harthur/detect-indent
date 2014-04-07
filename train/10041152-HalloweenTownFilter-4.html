@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spooky Filter: Happy Halloween!!!</title>
+    <link rel="stylesheet" href="HaloweenTown.css">
+    <script src="rgb-hsv_converter.js"></script>
+</head>
+<body>
+    <canvas class="intro" id ="intro" width="800" height="40">Your browser does not support the canvas element. </canvas>
+    <div class="filters">
+        <div class="fill" id="fill1">
+            <div class="upper">
+                Filter 1&nbsp;&nbsp;<input type="checkbox" id = "1"><br>
+                <input type="range" id="slider1" min="0" max="1" value="0.5" step=".02" onchange="hsvCirc(1)"/>
+            </div> <br>
+            <canvas class="circs" id ="circ1" width="180" height="160">Your browser does not support the canvas element.</canvas>
+        </div>
+        <div class="fill" id="fill2">
+            <div class="upper">
+                Filter 2&nbsp;&nbsp;<input type="checkbox" id = "2"><br>
+                <input type="range" id="slider2" min="0" max="1" value="0.5" step=".02" onchange="hsvCirc(2)"/>
+            </div> <br>
+            <canvas class="circs" id ="circ2" width="180" height="160">Your browser does not support the canvas element.</canvas>
+        </div>
+        <div class="fill" id="fill3">
+            <div class="upper">
+                Filter 3&nbsp;&nbsp;<input type="checkbox" id = "3"><br>
+                <input type="range" id="slider3" min="0" max="1" value="0.5" step=".02" onchange="hsvCirc(3)"/> 
+            </div><br>
+            <canvas class="circs" id ="circ3" width="180" height="160">Your browser does not support the canvas element.</canvas>
+        </div>
+        <div id="ranger">
+            <div class="ranges"> 
+                Filter Ranges
+                <input type="range" id="sliderAll" min="0" max="1" value="0.7" step=".02" onchange="hsvCirc(1);hsvCirc(2);hsvCirc(3)"/>
+            </div>
+            <div class="choice">
+                <p>Image</p>
+                <select id="art">
+                    <option>-Select-</option>
+                </select>
+            </div>
+            <button type="button" onclick="original()">- - Filter - -</button>
+        </div>
+        
+    </div>
+    <div class="pictures">
+        <canvas class="pic1" id="orig" width="400"height="400"> Your browser does not support the canvas element.</canvas>
+        <canvas class="pic2" id="new"width="400"height="400">Your browser does not support the canvas element.</canvas>
+    </div>
+    <script type="text/javascript">
+        function original(){
+            var selected = document.getElementById("art");
+            var toDraw = selected.options[selected.selectedIndex].text;
+            var canv = document.getElementById("orig");
+            var context = canv.getContext("2d");
+            var img = new Image();
+            var w, h, aspect, midx, midy;
+            midx = 0;
+            midy = 0;
+            img.onload = function(){
+                if (this.height > this.width){
+                    aspect = this.width/this.height;
+                    h=400;
+                    w= 400*aspect;
+                    midx = (400-w)/4 + 40;
+                }
+                else{
+                    aspect = this.height/this.width;
+                    w = 400;
+                    h = 400*aspect;
+                    midy = (400-h)/2
+                }   
+                context.clearRect(0,0,400,400);             
+                context.drawImage(img,midx,midy,w,h);
+                filter(midx,midy,w,h);
+                context.font = "15px verdana";
+                context.fillStyle = 'white';
+                context.fillText("Lillie Schachter", midx+20,midy+20);
+            }
+            img.src = toDraw;
+        }
+
+        function filter(midx,midy,w,h){
+            var canv = document.getElementById("orig");
+            var context = canv.getContext("2d");
+            var imgd = context.getImageData(midx,midy,w,h+10);
+            var pix = imgd.data;
+            var canvNew = document.getElementById("new");
+            var contextNew = canvNew.getContext("2d");
+            var imgNew = new Image();
+            var imgdNew = contextNew.createImageData(w,h);
+            contextNew.clearRect(0,0,400,400);
+            var pixNew = imgdNew.data;
+            var checks = new Array();
+            for (var i = 1; i < 4; i++){
+                var check = document.getElementById(i.toString());
+                if(check.checked == true){
+                    checks[i-1] = section(i);
+                }
+                else{
+                    checks[i-1] = 10;
+                }
+            }
+            var limit= parseFloat(limiter())/5;
+            for (var i = 0; i <pix.length; i+=4){
+                var hsv = rgbToHsv(pix[i],pix[i+1],pix[i+2]);
+                var hue = hsv[0];           
+                var lims=new Array();
+                var wrapLims = new Array();
+                for (var j=0;j<3;j++){
+                    var item = parseFloat(checks[j]);
+                    var lim1,lim2;
+                    lim1 =item+limit;
+                    lim2=item-limit;                  
+                    if(lim1>1){
+                        lim1 = lim1 - parseFloat(1);
+                    }
+                    if (lim2<0){
+                        lim2=lim2 + parseFloat(1);
+                    }
+                    if ((lim2<7)&&(lim2>lim1)){
+                        wrapLims[wrapLims.length] = 1;
+                        wrapLims[wrapLims.length] = lim2;
+                        wrapLims[wrapLims.length] = lim1;
+                        wrapLims[wrapLims.length] = 0;
+                        lim1=10;
+                        lim2=10;
+                    }
+                    lims[j*2] = lim1;
+                    lims[(j*2)+1] = lim2;
+                }             
+                if(((lims[0]>hue) && (lims[1]<hue))||((lims[2]>hue)&&(lims[3]<hue))||((lims[4]>hue)&&(lims[5]<hue))) {
+                    pixNew[i]=pix[i];
+                    pixNew[i+1] = pix[i+1];
+                    pixNew[i+2] = pix[i+2];
+                    pixNew[i+3] = pix[i+3];
+                }
+                if (wrapLims.length>0){
+                    for (var k = 0; k<=wrapLims.length;k+=2){
+                        if ((wrapLims[k]>hue)&&(wrapLims[k+1]<hue)) {
+                            pixNew[i]=pix[i];
+                            pixNew[i+1] = pix[i+1];
+                            pixNew[i+2] = pix[i+2];
+                            pixNew[i+3] = pix[i+3];
+                        }
+                    }
+                }
+                if(pixNew[i+3]!= pix[i+3]){
+                    pixNew[i]= 0;
+                    pixNew[i+1] = 0;
+                    pixNew[i+2] = 0;
+                    pixNew[i+3] = pix[i+3];
+                }
+            }
+            contextNew.putImageData(imgdNew,midx,midy);
+            contextNew.font = "15px verdana";
+            contextNew.fillStyle = 'white';
+            contextNew.fillText("Lillie Schachter", midx+30,midy+20);
+        }
+
+        var hello = document.getElementById("intro");
+        var welcome = hello.getContext("2d");
+        welcome.font="25px verdana";
+        welcome.fillText("COM214 - Multiple Image Filters",hello.width/4,hello.height-10);
+        
+        function choices(){
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET","images.txt",false);
+            xmlhttp.send();
+            xmlDoc=xmlhttp.responseText;
+            var ims = xmlDoc.split(" ");
+            var ch = document.getElementById("art");
+            for (i=0;i<(ims.length);i++){
+                var option = document.createElement("option");
+                option.text = ims[i].toString();
+                ch.add(option,null);
+            }
+        }
+
+        function limiter(){
+            var deg = document.getElementById("sliderAll");
+            return deg.value;      
+        }
+
+        function section(filter){
+            var posit = document.getElementById('slider'+filter.toString());
+            return posit.value; 
+        }
+
+        function hsvCirc(filter){
+            var circ = document.getElementById("circ"+filter.toString());
+            var circx = circ.getContext("2d");
+            var imgd = circx.createImageData(circ.width,circ.height);
+            var w = circ.width;
+            var pix = imgd.data;
+            var centerX = Math.floor(circ.width/2);
+            var centerY = Math.floor(circ.height/2);
+            var radius = 30;
+            var x,y;
+            for(radius; radius < 45; radius++) {
+                for (var t = 0; t<Math.PI*2; t+=.01){
+                    rgbCol = hsvToRgb(t/(Math.PI*2), 1, 1);
+                    x = Math.floor(radius*Math.cos(t)+centerX);
+                    y = Math.floor(radius*Math.sin(t)+centerY);
+                    pix[(y*w+x)*4] = rgbCol[0]; 	// red channel
+                    pix[(y*w+x)*4 +1] = rgbCol[1];  	// blue channel
+                    pix[(y*w+x)*4 +2] = rgbCol[2];  	// green channel
+                    pix[(y*w+x)*4 +3] = 255; 		// alpha channel                  
+                }	
+            }
+            circx.putImageData(imgd, 0,0);
+            var position = section(filter)*(2*Math.PI);
+            var degree = limiter()*(80*(Math.PI/180));
+            radius=radius+5;
+            var x1 = Math.floor(radius*(Math.cos(degree+position))+centerX);
+            var y1 = Math.floor(radius*(Math.sin(degree+position))+centerY);
+            var x2 = Math.floor(radius*(Math.cos(position-degree))+centerX);
+            var y2 = Math.floor(radius*(Math.sin(position-degree))+centerY);
+            circx.beginPath();
+            circx.moveTo(centerX,centerY);
+            circx.strokeStyle = 'white';
+            circx.lineWidth = 2;
+            circx.lineTo(x1,y1);
+            circx.stroke();
+            circx.moveTo(centerX,centerY);
+            circx.lineTo(x2,y2);
+            circx.stroke();
+        }
+        hsvCirc(1);
+        hsvCirc(2);
+        hsvCirc(3);
+        choices();
+    </script>
+</body>
+</html>
