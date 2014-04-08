@@ -11,9 +11,8 @@ var algos = {
 var dir = "files";
 var langs = ["HTML", "CSS", "JavaScript"];
 
-
-printStats();
 printAlgoResults();
+printStats();
 
 function printAlgoResults() {
   var results = getAlgoResults();
