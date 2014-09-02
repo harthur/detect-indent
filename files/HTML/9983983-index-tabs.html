@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaflet (faja 1 a 7) Bounds</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://leafletjs.com/dist/leaflet.css" />
+</head>
+<body>
+	<div id="map" style="width: 600px; height: 400px"></div>
+
+	<script src="http://leafletjs.com/dist/leaflet.js"></script>
+	<script>
+	  var map = L.map('map').setView([-45, -63], 2);
+      var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      L.tileLayer(osmUrl, {
+			maxZoom: 18,
+			attribution: ''
+      }).addTo(map);
+
+
+L.rectangle([[-52, -73.62], [-36.15, -70.5]], {color: '#ff7800', weight: 1}).addTo(map);
+L.rectangle([[-54.95, -70.5], [-24.1, -67.5]], {color: '#ff78ff', weight: 1}).addTo(map);
+L.rectangle([[-55.2, -67.5], [-21.8, -64.5]], {color: '#ff7800', weight: 1}).addTo(map);
+L.rectangle([[-55, -64.5], [-22, -61.5]], {color: '#ff78ff', weight: 1}).addTo(map);
+L.rectangle([[-39.2, -61.5], [-23.4, -58.5]], {color: '#ff7800', weight: 1}).addTo(map);
+L.rectangle([[-38.5, -58.5], [-25.1, -55.5]], {color: '#ff78ff', weight: 1}).addTo(map);
+L.rectangle([[-27.9, -55.5], [-25.5, -53.5]], {color: '#ff7800', weight: 1}).addTo(map);
+
+	</script>
+</body>
+</html>
