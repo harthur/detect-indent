@@ -21,7 +21,7 @@ module.exports = function(lines) {
     if (width == text.length) {
       return;
     }
-    if (width > 0) {
+    if (width > 1) {
       total++;
     }
 

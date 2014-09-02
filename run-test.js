@@ -9,11 +9,11 @@ var algos = {
 };
 
 var dir = "files";
-var langs = ["HTML", "CSS", "JavaScript"];
+var langs = ["HTML", "CSS", "JavaScript", "Ruby", "Python"];
 
 
-printStats();
 printAlgoResults();
+printStats();
 
 function printAlgoResults() {
   var results = getAlgoResults();
@@ -22,11 +22,13 @@ function printAlgoResults() {
 
 function getAlgoResults() {
   var allResults = {};
+  var algoResults = {};
+  var total = 0;
   for (var i in langs) {
     var counts = {};
     var lang = langs[i];
     var files = fs.readdirSync(path.join(dir, lang));
-    //files = files.slice(0, 50);
+    total += files.length;
 
     for (var j in files) {
       var file = path.join(dir, lang, files[j]);
@@ -34,7 +36,8 @@ function getAlgoResults() {
 
       for (var name in algos) {
         if (hits[name] == true) {
-          counts[name] = (counts[name] || 0) + 1
+          counts[name] = (counts[name] || 0) + 1;
+          algoResults[name] = (algoResults[name] || 0) + 1;
         }
       }
     }
@@ -44,7 +47,15 @@ function getAlgoResults() {
     }
     allResults[lang] = counts;
   }
-  return allResults;
+
+  for (var name in algos) {
+    algoResults[name] /= total;
+  }
+
+  return {
+    byLanguage: allResults,
+    overall: algoResults
+  };
 }
 
 function detectInFile(file) {
