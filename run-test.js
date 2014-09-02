@@ -18,18 +18,13 @@ function printAlgoResults() {
   var results = getAlgoResults();
 
   var totals = {};
-  for (var lang in results) {
-    console.log(lang + ":");
-    for (var algo in results[lang]) {
-      var count = results[lang][algo];
+  for (var type in results) {
+    console.log(type + ":");
+    for (var algo in results[type]) {
+      var count = results[type][algo];
       console.log(" ", algo.slice(0, 3) + ":", count);
       totals[algo] = (totals[algo] || 0) + count;
     }
-  }
-  console.log("overall:");
-  for (var algo in algos) {
-    totals[algo] /= langs.length;
-    console.log(" ", algo.slice(0, 3) + ":", totals[algo]);
   }
 }
 
